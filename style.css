@@ -307,41 +307,41 @@ h6 {
 /* =============================================================================================== */
 
 .header {
+    /* Додаємо невеликий тінь до всього хедера, щоб він виділявся на сторінці */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
 }
+
 .header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 20px;
 
-    background: #F0E7D2;
-    border-bottom: 2px solid rgb(74, 53, 43);
+    /* ЗМІНА: Фон контейнера на світлий пісочний, як у секціях */
+    background: #EADDC4;
+    /* ЗМІНА: Темний коричневий роздільник */
+    border-bottom: 2px solid #47383B;
     padding: 40px 15px 25px 15px;
 }
-.header__logo {
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    aspect-ratio: 40 / 40;
-    position: relative;
 
-    background: #fff;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 63, 200, 1); */
+.header__logo {
+    /* Стилі логотипу, якщо зображення буде використовуватися */
 }
 
 .header__company {
     font-size: 28px;
     font-weight: 900;
-    color: #ffffff;
     letter-spacing: 2px;
-
-    color: rgb(74, 53, 43, 0.6);
-    background: #FDCE44;
+    
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B;
+    /* ЗМІНА: Яскравий жовтий фон */
+    background: #ffe395;
     padding: 6px 14px;
     border-radius: 12px;
-    border: 2px solid rgb(74, 53, 43, 0.7);
+    /* ЗМІНА: Темний коричневий кордон */
+    border: 2px solid #47383B;
+    /* ПОКРАЩЕННЯ: Додамо об'ємності логотипу */
 }
 
 .header__logo img {
@@ -350,7 +350,7 @@ h6 {
     display: block;
 }
 
-/* --------------------- */
+/* --------------------- СТИЛІ ЗАГОЛОВКІВ СЕКЦІЙ --------------------- */
 .header-section {
     display: flex;
     align-items: center;
@@ -364,15 +364,17 @@ h6 {
     font-family: "Rubik", sans-serif;
     font-size: 36px;
     font-weight: 900;
-    color: rgb(74, 53, 43);
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B;
 }
 .header-section__subtitle {
     font-size: 16px;
     font-weight: 400;
-    color: rgb(74, 53, 43, 0.7);
+    /* ЗМІНА: М'якший відтінок темного коричневого */
+    color: rgba(71, 56, 59, 0.7);
 }
 
-/* --------------------- */
+/* --------------------- СТИЛІ БУРГЕР-МЕНЮ --------------------- */
 .menu-header{
     display: flex;
     align-items: center;
@@ -382,10 +384,22 @@ h6 {
     position: relative;
     z-index: 10;
     
-    background: #FDCE44;
+    /* ЗМІНА: Яскравий жовтий фон */
+    background: #FFB900;
     border-radius: 50%;
-    border: 1px solid rgb(74, 53, 43);;
+    /* ЗМІНА: Темний коричневий кордон */
+    border: 1px solid #47383B;
+    /* ПОКРАЩЕННЯ: Додаємо ефект об'єму */
+    transition: all 0.2s ease;
 }
+
+/* Ефект hover для бургер-меню */
+.menu-header:hover {
+    /* ЗМІНА: Помаранчевий hover */
+    background-color: #FF9900;
+    transform: scale(1.05);
+}
+
 
 .menu-header__burger{
     position: relative;
@@ -400,7 +414,8 @@ h6 {
     width: 100%;
     height: 2px;
     position: absolute;
-    background-color: rgb(74, 53, 43);;
+    /* ЗМІНА: Темний коричневий колір ліній */
+    background-color: #47383B;
     right: 0;
     transition: all 0.3s ease 0s;
 }
@@ -421,34 +436,41 @@ h6 {
 /* ============================================================ */
 /* ============================================================ */
 
-.intro{
+/* --- ГЛОБАЛЬНІ СТИЛІ СЕКЦІЙ (ЗАГАЛЬНІ) --- */
+
+.intro {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
+    /* ЗМІНА: Основний фон, якщо він тут потрібен */
+    background-color: #EADDC4; 
+    /* Візерунок адаптований */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
-.section--block{
-    display: flex; /* Для центрування зображення, якщо потрібно */
-    flex-direction: column; /* Елементи один під одним */
-    align-items: center; /* Центрування по горизонталі */
-    width: 100%; /* Приклад ширини, може бути auto або інша */
-    margin: 20px auto; /* Центрування блоку на сторінці */
+.section--block {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    margin: 20px auto; 
     gap: 40px;
 }
 
 /* Базові стилі для контейнера */
 .content-intro {
-    position: relative; /* Щоб позиціонувати дочірні елементи абсолютно */
+    position: relative; 
 }
 
 .content-intro__img img {
-    width: 100%; /* Зберігає пропорції */
-    display: block; /* Видаляє зайві відступи під зображенням */
-    border-radius: 20px 20px 0 0; /* Заокруглює тільки верхні кути зображення, якщо воно повністю зверху */
+    width: 100%; 
+    display: block; 
     overflow: hidden;
     aspect-ratio: 345 / 456;
-    border-radius: 20px; /* Заокруглені кути всього блоку, як на фоні */
-    background-color: #f1ecf3; /* Фоновий колір, схожий на сіро-жовтий з картинки */
+    border-radius: 20px; 
+    /* ЗМІНА: Фон зображення на кремово-білий */
+    background-color: #FFF8EB; 
 }
 
 .content-intro__img img {
@@ -457,68 +479,75 @@ h6 {
     height: 100%;
 }
 
-/* Блок цін */
+/* --- БЛОК ЦІН --- */
 .content-intro__block-price {
-    position: absolute; /* Позиціонуємо абсолютно відносно .content-intro */
-    top: -5%; /* Відступ зверху */
-    right: -5%; /* Центруємо по горизонталі */
+    position: absolute; 
+    top: -5%; 
+    right: -5%; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрування цін одна відносно одної */
-    z-index: 10; /* Щоб блок був над зображенням */
+    align-items: center; 
+    z-index: 10; 
 }
 
 .content-intro__new-price {
-    background-color: #F8C868;
-    color: #4A352B;
+    /* ЗМІНА: Яскравий жовтий фон */
+    background-color: #FFB900;
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B;
     padding: 8px 20px;
-    border-radius: 25px; /* Сильне заокруглення */
-    font-size: 2em; /* Великий розмір шрифту */
+    border-radius: 25px; 
+    font-size: 2em; 
     font-weight: bold;
-    line-height: 1; /* Для кращого вертикального вирівнювання тексту */
-    white-space: nowrap; /* Щоб текст не переносився */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь для об'ємності */
-    margin-bottom: -10px; /* Перекриває стару ціну */
-    position: relative; /* Для z-index, якщо буде конфлікт */
-    z-index: 2; /* Щоб була над старою ціною */
+    line-height: 1; 
+    white-space: nowrap; 
+    /* Тінь адаптована під жовтий */
+    box-shadow: 0 4px 8px rgba(255, 185, 0, 0.4); 
+    margin-bottom: -10px; 
+    position: relative; 
+    z-index: 2; 
 }
 
 .content-intro__old-price {
-    background-color: #F0E7D2;
-    color: #5C4535;
+    /* ЗМІНА: Нейтральний сіро-бежевий фон */
+    background-color: #D1C6B3;
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 1.2em;
-    text-decoration: line-through; /* Перекреслений текст */
+    text-decoration: line-through; 
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Тінь */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
     position: relative;
-    bottom: -10%; /* Піднімаємо вгору, щоб частково перекривалась новою ціною */
-    z-index: 3; /* Щоб була під новою ціною */
+    bottom: -10%; 
+    z-index: 3; 
 }
 
-/* Блок дій (кількість та кнопка) */
+/* --- БЛОК ДІЙ (КІЛЬКІСТЬ ТА КНОПКА) --- */
 .content-intro__actions {
-    position: absolute; /* Позиціонуємо абсолютно відносно .content-intro */
-    bottom: -8%; /* Відступ знизу */
+    position: absolute; 
+    bottom: -8%; 
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 40px); /* Ширина майже на весь контейнер, з відступами */
+    width: calc(100% - 40px); 
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 10; /* Щоб блок був над зображенням */
+    z-index: 10; 
 }
 
 .content-intro__actions-title {
-    background-color: #F8C868;/*'ятний колір, як на зображенні */
-    color: #4A352B;
+    /* ЗМІНА: Яскравий жовтий фон (як на скріншоті) */
+    background-color: #ffdf87;
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B;
     padding: 10px 20px;
     border-radius: 25px;
     font-size: 1.1em;
     font-weight: bold;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    width: fit-content; /* Ширина по контенту */
+    box-shadow: 0 3px 6px rgba(255, 185, 0, 0.4);
+    width: fit-content; 
     white-space: nowrap;
     text-align: center;
     margin-bottom: -2%;
@@ -526,24 +555,28 @@ h6 {
 }
 
 .content-intro__action-by {
-    background: linear-gradient(to right, #FFC107, #FFA000);
-    color: #fff;
+    /* ЗМІНА: Градієнт кнопки від яскравого жовтого до помаранчевого */
+    background: linear-gradient(to right, #FFB900, #FF9900);
+    /* ЗМІНА: Білий текст для контрасту */
+    color: #FFF; 
     padding: 15px 30px;
     border: none;
     border-radius: 30px;
     font-size: 1.3em;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
-    transition: all 0.3s ease; /* Анімація при наведенні */
-    width: 100%; /* Кнопка на всю ширину батьківського елемента */
-    max-width: 300px; /* Обмеження ширини кнопки */
+    /* Тінь адаптована під градієнт */
+    box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6);
+    transition: all 0.3s ease; 
+    width: 100%; 
+    max-width: 300px; 
     z-index: 1;
 }
 
 .content-intro__action-by:hover {
-    transform: translateY(-2px); /* Невеликий підйом при наведенні */
-    box-shadow: 0 7px 20px rgba(255, 102, 196, 0.6);
+    transform: translateY(-2px); 
+    /* ЗМІНА: Більш глибока тінь при hover */
+    box-shadow: 0 7px 20px rgba(255, 153, 0, 0.7);
 }
 
 /* ======================================================================================= */
@@ -556,61 +589,61 @@ h6 {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    background-color: #F0E7D2; /* Світлий бежевий фон, як на макеті */
-    background-image: radial-gradient(#d1c6b3 1px, transparent 1px); /* Дрібні крапки */
+    /* ЗМІНА: Основний фон на світлий пісочний */
+    background-color: #EADDC4; 
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px); 
     background-size: 20px 20px;
-    font-family: 'Manrope', sans-serif; /* Основний шрифт для секції */
-    align-items: center; /* Центрування вмісту секції по горизонталі */
+    font-family: 'Manrope', sans-serif; 
+    align-items: center; 
 }
 
-/* Контейнер для вмісту секції (section--block вже має ширину 375px) */
+/* Контейнер для вмісту секції */
 .video-review__container {
-    /* section--block вже має: */
-    /* width: 375px; */
-    /* margin: 20px auto; */
-    /* padding: 0 20px; */
-    /* box-sizing: border-box; */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрування всіх елементів в контейнері */
-    gap: 30px; /* Відстань між основними блоками всередині контейнера */
+    align-items: center; 
+    gap: 30px; 
 }
 
 /* Кнопка "ВІДЕООГЛЯД 🤪" */
 .video-review__button-link {
-    display: inline-flex; /* Щоб контент був по центру і мав відступи */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     padding: 8px 20px;
-    background-color: #F8C868; /* Теплий пісочний/жовтий */
-    color: #4A352B; /* Темний коричневий */
+    /* ЗМІНА: Яскравий жовтий фон */
+    background-color: #FFB900; 
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     border-radius: 25px;
     text-decoration: none;
-    font-family: 'Rubik', sans-serif; /* Для тексту кнопки */
+    font-family: 'Rubik', sans-serif; 
     font-size: 1.1em;
     font-weight: 700;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     transition: background-color 0.2s ease, transform 0.2s ease;
-    white-space: nowrap; /* Щоб текст не переносився */
+    white-space: nowrap; 
 }
 
 .video-review__button-link .emoji {
-    margin-left: 8px; /* Відступ для емодзі */
-    font-size: 1.2em; /* Трохи більший розмір емодзі */
-    line-height: 1; /* Для кращого вирівнювання */
+    margin-left: 8px; 
+    font-size: 1.2em; 
+    line-height: 1; 
 }
 
 .video-review__button-link:hover {
-    background-color: #E0B359; /* Темніший жовтий при наведенні */
+    /* ЗМІНА: Помаранчевий при наведенні */
+    background-color: #FF9900; 
     transform: translateY(-2px);
 }
 
 /* --- СТИЛІ ДЛЯ ВІДЕОПЛЕЄРА --- */
 .video-review__player {
-    width: 335px; /* Ширина відео блоку = 375px - 2*20px padding */
-    background-color: #4B4C60; /* Темний сіро-фіолетовий фон, як на макеті */
+    width: 335px; 
+    /* ЗМІНА: Темний синьо-сірий фон для плеєра */
+    background-color: #575163; 
     border-radius: 20px;
-    overflow: hidden; /* Обрізає вміст за межами заокруглення */
+    overflow: hidden; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
@@ -621,10 +654,11 @@ h6 {
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: rgba(0, 0, 0, 0.4); /* Напівпрозорий темний фон для хедеру */
+    /* ЗМІНА: Напівпрозорий фон, але беремо відтінок нашої темної основи */
+    background-color: rgba(71, 56, 59, 0.4); 
     color: #fff;
-    position: relative; /* Для правильного z-index, якщо потрібно */
-    z-index: 2; /* Над iframe */
+    position: relative; 
+    z-index: 2; 
 }
 
 .video-player__channel {
@@ -654,7 +688,7 @@ h6 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 150px; /* Обмеження ширини заголовка відео */
+    max-width: 150px; 
 }
 
 .video-player__channel-name {
@@ -665,8 +699,10 @@ h6 {
 
 /* Кнопка "Підписатися" */
 .video-player__subscribe-button {
-    background-color: #F8C868; /* Жовтий акцент */
-    color: #4A352B; /* Темний коричневий текст */
+    /* ЗМІНА: Яскравий жовтий акцент */
+    background-color: #FFB900; 
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     border: none;
     border-radius: 15px;
     padding: 5px 12px;
@@ -679,38 +715,42 @@ h6 {
 }
 
 .video-player__subscribe-button:hover {
-    background-color: #E0B359;
+    /* ЗМІНА: Помаранчевий hover */
+    background-color: #FF9900;
 }
 
 /* Кнопка "Поділитися" */
 .video-player__share-button {
     background: none;
     border: none;
-    color: #F8C868; /* Жовтий акцент для іконки */
-    font-size: 1.4em; /* Розмір іконки */
+    /* ЗМІНА: Яскравий жовтий акцент для іконки */
+    color: #FFB900; 
+    font-size: 1.4em; 
     cursor: pointer;
     transition: color 0.2s ease;
-    margin-left: auto; /* Щоб відштовхнути від інших елементів */
+    margin-left: auto; 
 }
 
 .video-player__share-button svg {
-    width: 20px; /* Фіксований розмір для SVG */
+    width: 20px; 
     height: 20px;
-    fill: currentColor; /* Щоб SVG приймало колір батьківського елемента */
+    fill: currentColor; 
 }
 
 .video-player__share-button:hover {
-    color: #E0B359;
+    /* ЗМІНА: Помаранчевий hover */
+    color: #FF9900;
 }
 
 
 .video-player__content {
     position: relative;
-    padding-bottom: 56.25%; /* Співвідношення сторін 16:9 (для YouTube) */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
-    background-color: #333; /* Темний фон, поки відео не завантажилося */
-    flex-grow: 1; /* Займе весь доступний простір */
+    /* ЗМІНА: Темний фон, поки відео не завантажилося */
+    background-color: #575163; 
+    flex-grow: 1; 
 }
 
 .video-player__iframe {
@@ -719,56 +759,52 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; /* Видаляємо рамку iframe */
-    z-index: 1; /* Під overlay-text, якщо overlay-text використовується для показу перед відтворенням */
+    border: none; 
+    z-index: 1; 
 }
 
 .video-player__overlay-text {
-    position: absolute;
+    position: relative; /* Змінено на relative для прикладу. Зазвичай absolute */
     bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний фон */
+    /* ЗМІНА: Напівпрозорий темний фон */
+    background-color: rgba(71, 56, 59, 0.6); 
     color: #fff;
     padding: 8px 15px;
     border-radius: 15px;
     font-size: 0.9em;
     font-weight: 500;
     white-space: nowrap;
-    z-index: 3; /* Поверх iframe */
-    opacity: 0.8; /* Трохи прозоріший */
+    z-index: 3; 
+    opacity: 0.8; 
 }
 
 /* --- СТИЛІ ДЛЯ МІНІАТЮР ТОВАРІВ --- */
 .product-thumbnails {
     display: flex;
-    justify-content: center; /* Центрування мініатюр */
-    gap: 10px; /* Відстань між мініатюрами */
-    flex-wrap: wrap; /* Дозволяє переносити мініатюри на новий рядок на вузьких екранах */
-    width: 100%; /* Займає всю доступну ширину контейнера */
-    max-width: 335px; /* Обмеження ширини */
+    justify-content: center; 
+    gap: 10px; 
+    flex-wrap: wrap; 
+    width: 100%; 
+    max-width: 335px; 
 }
 
 .product-thumbnails__item {
-    width: 50px; /* Фіксована ширина мініатюри */
-    height: 60px; /* Фіксована висота мініатюри */
+    width: 50px; 
+    height: 60px; 
     border-radius: 12px;
-    object-fit: cover; /* Обрізає зображення, щоб воно заповнило контейнер */
-    border: 2px solid transparent; /* Для рамки при активності */
+    object-fit: cover; 
+    border: 2px solid transparent; 
     transition: border-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
 }
 
 .product-thumbnails__item:hover {
-    border-color: #F8C868; /* Жовта рамка при наведенні */
+    /* ЗМІНА: Яскрава жовта рамка при наведенні */
+    border-color: #FFB900; 
     transform: translateY(-2px);
 }
-
-/* Якщо потрібен стиль для активної мініатюри (наприклад, якщо по ній клікнули) */
-/* .product-thumbnails__item.active {
-    border-color: #F8C868;
-    box-shadow: 0 0 8px rgba(248, 200, 104, 0.7);
-} */
 
 /* ============================================================================================== */
 /* ============================================================================================== */
@@ -780,42 +816,48 @@ h6 {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    background-color: #F0E7D2; /* Світлий бежевий фон */
+    /* ЗМІНА: Основний фон на світлий пісочний */
+    background-color: #EADDC4; 
+    /* Візерунок адаптований */
     background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
     background-size: 20px 20px;
-    align-items: center; /* Центрування секції */
+    align-items: center; 
 }
 
 .details__container {
-    /* section--block вже має: width: 375px; padding: 0 20px; */
-    gap: 25px; /* Менший відступ між блоками */
-    text-align: left; /* Вирівнювання тексту */
-    width: 375px; /* Фіксована ширина */
+    gap: 25px; 
+    text-align: left; 
+    width: 375px; 
     box-sizing: border-box;
+    /* Додаємо внутрішній відступ, якщо він не встановлений глобально */
+    padding: 0 20px; 
 }
 
-/* Заголовок (header-section вже стилізований, але стилізуємо тут виділений текст) */
+/* Заголовок */
 .details__header {
     text-align: left;
     width: 100%;
 }
 
 .details__header .header-section__title {
-    /* Додаткові стилі для заголовка, якщо потрібно */
     font-size: 2.3em;
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B;
 }
 
 .details__header .highlight-text {
-    color: #4B4C60; /* Темний сіро-фіолетовий для контрасту/виділення */
+    /* ЗМІНА: Яскравий жовтий акцент */
+    color: #FFB900; 
 }
 
 .details__description {
     font-family: 'Manrope', sans-serif;
     font-size: 1em;
     font-weight: 500;
-    color: #5C4535; /* Глибокий коричневий */
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B; 
     line-height: 1.5;
-    padding: 0 20px; /* Внутрішній відступ для тексту опису */
+    padding: 0; /* Прибираємо зайвий внутрішній відступ, якщо є container padding */
     width: 100%;
     box-sizing: border-box;
 }
@@ -824,12 +866,13 @@ h6 {
 
 .info-block,
 .care-block {
-    width: 335px; /* 375px - 2*20px padding контейнера */
-    margin: 0 20px; /* Вирівнювання по центру */
+    /* Робимо 100% ширини контейнера для уніфікації */
+    width: 100%; 
+    margin: 0; 
     box-sizing: border-box;
 }
 
-/* Тепер це div-заголовки, а не кнопки */
+/* Заголовок блоків */
 .info-block__title {
     display: flex;
     align-items: center;
@@ -841,8 +884,8 @@ h6 {
     font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    /* Прибираємо cursor: pointer; та transition */
+    /* Тінь адаптована під жовтий акцент */
+    box-shadow: 0 4px 8px rgba(255, 185, 0, 0.3); 
 }
 
 .info-block__title .emoji {
@@ -852,14 +895,18 @@ h6 {
 
 /* Стиль для заголовка "ХАРАКТЕРИСТИКИ" */
 .info-block__title--features {
-    background-color: #F8C868; /* Теплий пісочний/жовтий, як на Image 2 */
-    color: #4A352B; /* Темний коричневий текст, як на Image 2 */
+    /* ЗМІНА: Яскравий жовтий акцент */
+    background-color: #FFB900; 
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
 }
 
 /* Стиль для заголовка "ДОГЛЯД" */
 .info-block__title--care {
-    background-color: #4B4C60; /* Темний сіро-фіолетовий, як на Image 1 */
-    color: #F0E7D2; /* Світлий бежевий текст, як на Image 1 */
+    /* ЗМІНА: Темно-синьо-сірий колір, як на скріншоті */
+    background-color: #575163; 
+    color: #FFF; /* Білий текст для контрасту */
+    box-shadow: 0 4px 8px rgba(87, 81, 99, 0.4); /* Тінь під колір фону */
 }
 
 /* --- СПИСОК ХАРАКТЕРИСТИК --- */
@@ -874,10 +921,12 @@ h6 {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px dashed #D1C6B3; /* Пунктирна лінія */
+    /* ЗМІНА: Пунктирна лінія сіро-бежевого кольору */
+    border-bottom: 1px dashed #D1C6B3; 
     font-family: 'Manrope', sans-serif;
     font-size: 0.95em;
-    color: #4A352B;
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B;
 }
 
 .info-block__label {
@@ -889,7 +938,8 @@ h6 {
 .info-block__value {
     font-weight: 400;
     text-align: right;
-    color: #5C4535;
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B;
 }
 
 /* --- СПИСОК ДОГЛЯДУ --- */
@@ -899,8 +949,10 @@ h6 {
     padding: 20px;
     margin: 0;
     border-radius: 15px;
-    background-color: #FFF3E0; 
-    border: 2px solid #F8C868;
+    /* ЗМІНА: Світлий фон */
+    background-color: #FFF8EB; 
+    /* ЗМІНА: Яскравий жовтий кордон */
+    border: 2px solid #FFB900;
 }
 
 .care-block__item {
@@ -910,7 +962,8 @@ h6 {
     margin-bottom: 10px;
     font-family: 'Manrope', sans-serif;
     font-size: 0.95em;
-    color: #4A352B;
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B;
     line-height: 1.4;
 }
 
@@ -920,18 +973,16 @@ h6 {
     margin-top: -2px;
 }
 
-/* Кольори для тексту елементів догляду (як на попередньому макеті) */
-.care-block__item--wash { color: #4B4C60; }
-.care-block__item--bleach { color: #9B59B6; }
-.care-block__item--dry { color: #3498DB; }
-.care-block__item--iron { color: #E74C3C; }
-.care-block__item--clean { color: #4A352B; }
+/* Кольори для тексту елементів догляду (адаптовані під нову палітру) */
+.care-block__item--wash { color: #575163; } /* Темний синій/сірий */
+.care-block__item--bleach { color: #E74C3C; } /* Червоний (Не відбілювати) */
+.care-block__item--dry { color: #007bff; } /* Синій (Сушіння) */
+.care-block__item--iron { color: #E74C3C; } /* Червоний (Не прасувати) */
+.care-block__item--clean { color: #47383B; } /* Темний коричневий */
 
 /* ============================================================================================ */
 /* ============================================================================================ */
 /* ============================================================================================ */
-
-/* --- СТИЛІ ДЛЯ СЕКЦІЇ РОЗМІРІВ (dimensions) --- */
 
 /* --- ГЛОБАЛЬНІ СТИЛІ СЕКЦІЙ (ЗАГАЛЬНІ) --- */
 
@@ -940,7 +991,9 @@ h6 {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    background-color: #F0E7D2; /* Світлий бежевий фон */
+    /* ЗМІНА: Основний фон на світлий пісочний */
+    background-color: #EADDC4; 
+    /* Візерунок адаптований під новий фон */
     background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
     background-size: 20px 20px;
     font-family: 'Manrope', sans-serif;
@@ -968,31 +1021,36 @@ h6 {
 .dimensions__header .header-section__title,
 .reviews-block__header .header-section__title {
     font-size: 2.3em;
-    color: #4A352B; 
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B; 
 }
 
 /* --- 1. СТИЛІ ДЛЯ СЕКЦІЇ РОЗМІРІВ (.dimensions) - FADE SLIDER --- */
 
 .dimensions__header .highlight-text {
-    color: #4B4C60; /* Темний сіро-фіолетовий */
+    /* ЗМІНА: Акцентний жовтий колір */
+    color: #FFB900; 
 }
 
 /* БЛОК ЗОБРАЖЕННЯ / СЛАЙДЕРА */
 .dimensions__content {
     width: 100%; 
     margin: 0; 
-    background-color: #FFF8EB; /* Дуже світлий кремовий/пісочний */
-    border-radius: 20px;
+    /* ЗМІНА: Фон на світлий кремовий для контрасту з секцією */
+    background-color: #FFF8EB; 
+    /* Тінь залишаємо, але можна пом'якшити*/
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
-    height: 400px; /* ФІКСОВАНА ВИСОТА */
+    height: 400px; 
+    border-radius: 20px; /* Перенесено сюди для чистоти */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
-    border: 2px solid #F8C868; /* Жовта рамка */
+    /* ЗМІНА: Яскрава жовта рамка */
+    border: 2px solid #FFB900; 
 }
 
 /* Слайди FADE-слайдера */
@@ -1005,7 +1063,6 @@ h6 {
 }
 
 .dimensions__content .slider-image {
-    /* !!! FADE LOGIC !!! */
     position: absolute; 
     top: 0;
     left: 0;
@@ -1031,24 +1088,29 @@ h6 {
 .dimensions__navigation .navigation-buttons__next {
     flex: 1;
     height: 55px;
-    background-color: #F8F0E3; 
-    border: 2px solid #5C4535; 
+    /* ЗМІНА: Фон на кремово-білий */
+    background-color: #FFF8EB; 
+    /* ЗМІНА: Темний коричневий кордон */
+    border: 2px solid #47383B; 
     border-radius: 30px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    /* Тінь під колір акценту */
+    box-shadow: 0 5px 12px rgba(255, 185, 0, 0.2);
     outline: none;
 }
 
 .dimensions__navigation .navigation-buttons__prev:hover,
 .dimensions__navigation .navigation-buttons__next:hover {
-    background-color: #F8C868; 
-    border-color: #4A352B; 
+    /* ЗМІНА: Яскравий жовтий фон при hover */
+    background-color: #FFB900; 
+    /* ЗМІНА: Помаранчевий кордон */
+    border-color: #FF9900; 
     transform: translateY(-4px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 10px 20px rgba(255, 185, 0, 0.3); 
 }
 
 .dimensions__navigation .navigation-buttons__prev:active,
@@ -1059,31 +1121,43 @@ h6 {
 
 .dimensions__navigation .navigation-buttons__prev svg,
 .dimensions__navigation .navigation-buttons__next svg {
-    stroke: #4A352B; 
+    /* ЗМІНА: Темний коричневий */
+    stroke: #47383B; 
     transition: stroke 0.3s ease;
 }
 
 .dimensions__navigation .navigation-buttons__prev:hover svg,
 .dimensions__navigation .navigation-buttons__next:hover svg {
-    stroke: #F0E7D2; 
+    /* ЗМІНА: Білий stroke при hover для контрасту */
+    stroke: #FFF; 
 }
 
-
+/* ========================================================================================== */
+/* ========================================================================================== */
 /* ========================================================================================== */
 
-
 /* --- 2. СТИЛІ ДЛЯ СЕКЦІЇ ВІДГУКІВ (.reviews-block) - SCROLL SLIDER --- */
+
+.reviews-block {
+    /* ЗБЕРІГАЄМО ПІСОЧНИЙ ФОН СЕКЦІЇ З КАТАЛОГУ */
+    background-color: #EADDC4; 
+    /* Можна додати візерунок, якщо потрібно: background-image: radial-gradient(#d1c6b3 1px, transparent 1px); */
+    padding: 30px 0;
+    font-family: 'Manrope', sans-serif;
+}
 
 .reviews-block__header {
     text-align: center;
 }
 
 .reviews-block__header .highlight-text {
-    color: #F8C868; /* Жовтий акцент */
+    /* ЗМІНА: Яскравий жовтий акцент */
+    color: #FFB900; 
 }
 
 .reviews-block__header .header-section__subtitle {
-    color: #5C4535;
+    /* ЗМІНА: Темний коричневий (з попереднього коду) */
+    color: #47383B;
     font-size: 1em;
     font-weight: 500;
     margin-top: 0;
@@ -1095,14 +1169,17 @@ h6 {
     align-items: center;
     justify-content: center;
     padding: 8px 20px;
-    background: linear-gradient(to bottom, #fad68e, #f6c970); 
-    color: #4A352B; 
+    /* ЗМІНА: Градієнт CTA */
+    background: linear-gradient(to bottom, #FFB900, #FF9900); 
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     border-radius: 25px;
     text-decoration: none;
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
     font-weight: 700;
-    box-shadow: 0 5px 15px rgba(255, 242, 102, 0.6); 
+    /* ЗМІНА: Тінь під колір акценту */
+    box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6); 
     transition: all 0.2s ease;
 }
 
@@ -1116,7 +1193,7 @@ h6 {
     padding-bottom: 10px; 
     -ms-overflow-style: none; 
     scrollbar-width: none; 
-    height: 450px; /* ФІКСОВАНА ВИСОТА */
+    height: 450px; 
     overflow-y: hidden; 
 }
 
@@ -1132,13 +1209,15 @@ h6 {
 
 .review-slide {
     flex-shrink: 0;
-    width: 335px; /* Ширина одного скріншота */
+    width: 335px; 
     scroll-snap-align: start;
+    /* ЗБЕРІГАЄМО: Білий фон для контрасту зі світло-бежевою секцією */
     background-color: #fff; 
     border-radius: 20px;
     overflow: hidden;
+    /* Тінь залишається нейтральною */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    height: 430px; /* Встановлюємо ФІКСОВАНУ ВИСОТУ для самого слайда */
+    height: 430px; 
 }
 
 .review-slide__image {
@@ -1165,7 +1244,8 @@ h6 {
     width: 45px; 
     aspect-ratio: 1 / 1;
     background-color: transparent; 
-    border: 2px solid #5C4535; /* Товста коричнева рамка */
+    /* ЗМІНА: Темна коричнева рамка */
+    border: 2px solid #47383B; 
     border-radius: 50%; 
     
     transition: all 0.2s ease;
@@ -1175,28 +1255,30 @@ h6 {
 
 .reviews-block__navigation .navigation-buttons__prev:hover,
 .reviews-block__navigation .navigation-buttons__next:hover {
-    background-color: rgba(248, 200, 104, 0.3); 
-    border-color: #F8C868; 
+    /* ЗМІНА: Напівпрозорий жовтий при наведенні */
+    background-color: rgba(255, 185, 0, 0.3); 
+    /* ЗМІНА: Яскрава жовта рамка при наведенні */
+    border-color: #FFB900; 
     transform: none; 
 }
 
 .reviews-block__navigation .navigation-buttons__prev svg,
 .reviews-block__navigation .navigation-buttons__next svg {
-    stroke: #4A352B; 
+    /* ЗМІНА: Темний коричневий */
+    stroke: #47383B; 
     width: 30px; 
     height: 30px;
 }
 
 .reviews-block__navigation .navigation-buttons__prev:hover svg,
 .reviews-block__navigation .navigation-buttons__next:hover svg {
-    stroke: #E0B359; 
+    /* ЗМІНА: Яскравий жовтий при наведенні */
+    stroke: #FFB900; 
 }
 
 /* =============================================================================== */
 /* =============================================================================== */
 /* =============================================================================== */
-
-/* --- СТИЛІ ДЛЯ СЕКЦІЇ БЛОГЕРІВ (bloggers-block) --- */
 
 /* --- СТИЛІ ДЛЯ СЕКЦІЇ БЛОГЕРІВ (bloggers-block) --- */
 
@@ -1204,7 +1286,9 @@ h6 {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    background-color: #F0E7D2; /* Світлий бежевий фон */
+    /* ЗМІНА: Основний фон на світлий пісочний/бежевий */
+    background-color: #EADDC4; 
+    /* ЗМІНА: Візерунок адаптовано під новий фон */
     background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
     background-size: 20px 20px;
     align-items: center;
@@ -1224,40 +1308,41 @@ h6 {
 
 /* Акцентна кнопка "ВІДГУКИ 🥰" */
 .bloggers-block__accent-button {
-    /* Робимо її більш виразною */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 8px 20px;
-    background: linear-gradient(to bottom, #fad68e, #f6c970);
-    color: #4A352B; 
-    color: #4A352B; 
+    /* ЗМІНА: Яскравий жовто-помаранчевий градієнт */
+    background: linear-gradient(to bottom, #FFB900, #FF9900);
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     border-radius: 25px;
     text-decoration: none;
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
     font-weight: 700;
-    /* Змінюємо тінь на рожеву, як на прикладі */
-    box-shadow: 0 5px 15px rgba(255, 242, 102, 0.6); 
+    /* ЗМІНА: Тінь під колір акценту */
+    box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6); 
     transition: all 0.2s ease;
     margin-bottom: 5px; 
-    border: 2px solid #E0B359; /* Додаємо рамку того ж кольору */
+    /* ЗМІНА: Рамка під колір акценту (трохи темніший жовтий) */
+    border: 2px solid #FF9900; 
 }
 
 /* --- СЛАЙДЕР БЛОГЕРІВ (SCROLL LOGIC) --- */
 
 .bloggers-block__slider-wrapper {
-    /* Фон для слайдера робимо світло-жовтим для відчуття об'єму */
+    /* ЗМІНА: Фон для слайдера робимо світлим кремовим для контрасту з основним фоном */
     background-color: #FFF8EB; 
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Глибша тінь */
-    padding-bottom: 20px; /* Більший відступ знизу для чистого вигляду */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
+    padding-bottom: 20px; 
     
     width: 100%; 
     overflow-x: scroll; 
     scroll-snap-type: x mandatory; 
     -ms-overflow-style: none; 
     scrollbar-width: none; 
+    border-radius: 24px;
     
     height: 300px;
     overflow-y: hidden;
@@ -1265,9 +1350,9 @@ h6 {
 
 .bloggers-block__slider-track {
     display: flex;
-    gap: 25px; /* Збільшуємо відступ між картками */
+    gap: 25px; 
     width: fit-content; 
-    padding: 0 25px; /* Збільшуємо внутрішній відступ */
+    padding: 0 25px; 
     height: 100%;
     align-items: center; 
 }
@@ -1275,12 +1360,13 @@ h6 {
 /* Стиль для кожного слайда */
 .blogger-slide {
     flex-shrink: 0; 
-    width: 155px; /* Трохи скорегована ширина */
+    width: 155px; 
     height: 270px;
     
-    scroll-snap-align: center; /* Центруємо слайди при прокрутці */
+    scroll-snap-align: center; 
     text-decoration: none; 
-    color: #4A352B;
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B;
     padding-top: 20px;
     
     display: flex; 
@@ -1295,35 +1381,38 @@ h6 {
     width: 140px; 
     height: 140px; 
     margin: 0 auto 10px; 
-    border-radius: 50%; /* Це робить його круглим */
-    overflow: hidden; /* Це обрізає краї зображення */
-    box-shadow: 0 0 0 4px #ddbc7a, 0 0 0 6px #F8C868; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    /* ЗМІНА: Жовто-помаранчеві облямівки */
+    box-shadow: 0 0 0 4px #FFB900, 0 0 0 6px #FF9900; 
 }
 
 .blogger-slide .blogger-slide__image {
     width: 100%;
     height: 100%;
-    /* КЛЮЧОВЕ ВИПРАВЛЕННЯ: використовуємо cover */
     object-fit: cover; 
 }
 
 .blogger-slide .blogger-slide__play-icon {
-    /* Змінюємо стиль на більш помітний жовтий/коричневий */
-    background-color: #F8C868; 
-    box-shadow: 0 0 0 4px rgba(74, 53, 43, 0.4); /* Темна тінь */
+    /* ЗМІНА: Яскравий жовтий фон */
+    background-color: #FFB900; 
+    /* ЗМІНА: Темна тінь */
+    box-shadow: 0 0 0 4px rgba(71, 56, 59, 0.4); 
 }
 
 .blogger-slide .blogger-slide__play-icon svg {
-    fill: #4A352B; /* Темний коричневий трикутник */
+    /* ЗМІНА: Темний коричневий трикутник */
+    fill: #47383B; 
 }
 
 .blogger-slide .blogger-slide__username {
-    /* Робимо більш схожим на лейбл/напис */
     font-family: 'Rubik', sans-serif;
     font-size: 0.95em;
     font-weight: 600;
-    color: #4A352B;
-    background-color: #F8C868; 
+    /* ЗМІНА: Темний текст */
+    color: #47383B;
+    /* ЗМІНА: Жовтий фон */
+    background-color: #FFB900; 
     padding: 5px 12px;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -1340,47 +1429,52 @@ h6 {
 
 .bloggers-block__navigation .navigation-buttons__prev,
 .bloggers-block__navigation .navigation-buttons__next {
-    /* Створюємо стиль "легкої" кнопки: прозорий фон, тонка рамка */
+    /* Зберігаємо прозорий фон */
     flex: 1;
     width: 150px; 
     height: 50px;
-    background-color: transparent; /* Прозорий фон */
-    border: 2px solid #D1C6B3; /* Тонка сіро-бежева рамка */
+    background-color: transparent; 
+    /* ЗМІНА: Тонка сіро-бежева рамка */
+    border: 2px solid #D1C6B3; 
     border-radius: 30px;
-    box-shadow: none; /* Прибираємо тінь за замовчуванням */
+    box-shadow: none; 
     transition: all 0.2s ease;
 }
 
 .bloggers-block__navigation .navigation-buttons__prev:hover,
 .bloggers-block__navigation .navigation-buttons__next:hover {
-    background-color: #F8C868; /* Яскравий жовтий при наведенні */
-    border-color: #F8C868; 
+    /* ЗМІНА: Яскравий жовтий при наведенні */
+    background-color: #FFB900; 
+    border-color: #FFB900; 
     transform: translateY(-2px); 
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* М'яка тінь при наведенні */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .bloggers-block__navigation .navigation-buttons__prev svg,
 .bloggers-block__navigation .navigation-buttons__next svg {
-    stroke: #5C4535; /* Глибокий коричневий */
+    /* ЗМІНА: Темний коричневий */
+    stroke: #47383B; 
 }
 
 .bloggers-block__navigation .navigation-buttons__prev:hover svg,
 .bloggers-block__navigation .navigation-buttons__next:hover svg {
-    stroke: #4A352B; /* Темний коричневий */
+    /* ЗМІНА: Темний коричневий */
+    stroke: #47383B; 
 }
 
 /* ======================================================================================= */
 /* ======================================================================================= */
 /* ======================================================================================= */
 
-/* --- СТИЛІ СЕКЦІЇ КАТАЛОГУ КРІСЕЛ (.catalog-section) --- */
 /* --- СТИЛІ СЕКЦІЇ КАТАЛОГУ КРІСЕЛ (.catalog-section) --- */
 
 .catalog-section {
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    background-color: #F0E7D2; /* Світлий бежевий фон */
+    /* ЗМІНА: Основний фон на світлий пісочний/бежевий */
+    background-color: #EADDC4; 
+    /* Зміна: Візерунок, адаптований під новий фон */
     background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
     background-size: 20px 20px;
     align-items: center;
@@ -1394,14 +1488,15 @@ h6 {
     width: 375px; 
     box-sizing: border-box;
     padding: 0 20px;
-    gap: 30px; /* Відстань між картками */
+    gap: 30px; 
 }
 
 .catalog-section__title {
     font-family: 'Rubik', sans-serif;
     font-size: 2.2em;
     font-weight: 800;
-    color: #4A352B; /* Темний коричневий */
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     text-transform: uppercase;
     text-align: center;
 }
@@ -1413,24 +1508,28 @@ h6 {
 }
 
 .catalog-slider__card {
-    width: 100%; /* 335px */
-    background: linear-gradient(to bottom, #FFF8EB, #EDE2D4); /* М'який градієнт від світлого кремового до легкого бежевого */
+    width: 100%; 
+    /* ЗМІНА: Градієнт тепер від світлого кремового до фону секції */
+    background: linear-gradient(to bottom, #FFF8EB, #EADDC4); 
     border-radius: 25px;
+    /* Тінь залишаємо нейтральною */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     padding: 15px; 
     box-sizing: border-box;
-    border: 1px solid #D1C6B3; /* Легка облямівка, щоб картка не зливалася з фоном */
+    /* Облямівка залишається нейтральною */
+    border: 1px solid #D1C6B3; 
 }
 
 /* КОНТЕЙНЕР ЗОБРАЖЕННЯ (Слайдер) */
 .catalog-slider__wrapper {
     position: relative;
     width: 100%;
-    height: 300px; /* Фіксована висота */
+    height: 300px; 
     overflow: hidden;
     border-radius: 20px;
     margin-bottom: 20px;
-    border: 2px solid #F8C868; /* Жовта рамка для акценту */
+    /* ЗМІНА: Яскрава жовта рамка */
+    border: 2px solid #FFB900; 
     padding: 0; 
 }
 
@@ -1458,8 +1557,8 @@ h6 {
 .catalog-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Заповнює весь простір */
-    background-color: #FFF8EB; /* Фон під зображенням = фон картки */
+    object-fit: cover; 
+    background-color: #FFF8EB; 
     border-radius: 20px;
 }
 
@@ -1476,8 +1575,10 @@ h6 {
     transform: translateY(-50%);
     width: 35px;
     height: 35px;
-    background-color: #F8C868; /* Жовтий фон для видимості */
-    border: 2px solid #4A352B; /* Темна рамка */
+    /* ЗМІНА: Яскравий жовтий фон для видимості */
+    background-color: #FFB900; 
+    /* ЗМІНА: Темний коричневий кордон */
+    border: 2px solid #47383B; 
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -1486,21 +1587,22 @@ h6 {
     transition: all 0.2s ease;
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    /* `pointer-events: auto;` вже було в минулих версіях, залишаємо, якщо потрібно */
 }
 
 .catalog-slider__arrow--prev { left: 10px; }
 .catalog-slider__arrow--next { right: 10px; }
 
 .catalog-slider__arrow:hover {
-    background-color: #E0B359; /* Темніший жовтий hover */
-    border-color: #4A352B;
+    /* ЗМІНА: Помаранчевий при hover */
+    background-color: #FF9900; 
+    border-color: #47383B;
 }
 
 .catalog-slider__arrow svg {
-    stroke: #4A352B; /* Темний коричневий */
+    /* ЗМІНА: Темний коричневий */
+    stroke: #47383B; 
     transition: stroke 0.2s ease;
-    width: 20px; /* Забезпечуємо розмір іконок */
+    width: 20px; 
     height: 20px;
 }
 
@@ -1521,22 +1623,21 @@ h6 {
     font-family: 'Rubik', sans-serif;
     font-size: 1.8em;
     font-weight: 700;
-    color: #4A352B; /* Темний коричневий текст */
+    /* ЗМІНА: Темний коричневий текст */
+    color: #47383B; 
     margin-top: 5px; 
     margin-bottom: 10px;
     text-transform: uppercase;
-    /* ВИПРАВЛЕННЯ: Обмеження, щоб текст не виходив за межі */
     padding: 0 10px; 
-    overflow-wrap: break-word; /* Перенесення довгих слів */
-    line-height: 1.2; /* Для кращого вигляду багаторядкового тексту */
+    overflow-wrap: break-word; 
+    line-height: 1.2; 
 }
 
 .catalog-slider__price-options {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Збільшуємо відступ між цінами */
+    gap: 20px; 
     margin-bottom: 25px;
-    /* ВИПРАВЛЕННЯ: Обмеження, щоб елементи не виходили за межі */
     padding: 0 5px; 
     width: 100%;
     box-sizing: border-box;
@@ -1550,50 +1651,198 @@ h6 {
 
 /* Стиль цінових лейблів (на 2 подушки, на 3 подушки) */
 .price-option__label {
-    /* Змінено: М'який жовтий градієнт замість суцільного кольору */
-    background: linear-gradient(to bottom, #F8C868, #E0B359);
-    color: #4A352B; 
+    /* ЗМІНА: Яскравий жовто-помаранчевий градієнт */
+    background: linear-gradient(to bottom, #FFB900, #FF9900);
+    /* ЗМІНА: Темний текст */
+    color: #47383B; 
     padding: 3px 10px;
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 600;
     margin-bottom: 5px;
-    box-shadow: 0 2px 4px rgba(224, 179, 89, 0.5); /* Тінь під колір градієнта */
-    white-space: nowrap; /* Зберігаємо в один рядок */
-    min-width: 90px; /* Забезпечуємо однакову мінімальну ширину */
-    text-align: center; /* Центруємо текст */
+    /* ЗМІНА: Тінь під колір градієнта */
+    box-shadow: 0 2px 4px rgba(255, 185, 0, 0.5); 
+    white-space: nowrap; 
+    min-width: 90px; 
+    text-align: center; 
 }
 
 .price-option__value {
     font-family: 'Rubik', sans-serif;
     font-size: 1.6em;
     font-weight: 800;
-    /* Змінено: Прибираємо яскраво-блакитний, використовуємо темний коричневий */
-    color: #4A352B; 
+    /* ЗМІНА: Темний коричневий */
+    color: #47383B; 
 }
 
 /* Кнопка ЗАМОВИТИ */
 .catalog-slider__button {
     width: 90%;
     padding: 15px 0;
-    /* Змінено: М'який рожевий градієнт */
-    background: linear-gradient(to bottom, #FFF8EB, #F8E0B3);
-    color: #4A352B; /* Темний текст на рожевому */
-    border: 2px solid #f8dca7;
+    /* ЗМІНА: Створюємо яскравий помаранчевий градієнт кнопки CTA */
+    background: linear-gradient(to bottom, #FFB900, #FF9900);
+    /* ЗМІНА: Білий текст для контрасту на яскравому фоні */
+    color: #FFF; 
+    /* ЗМІНА: Кордон, адаптований до нового акценту */
+    border: 2px solid #FFC94A; 
     border-radius: 35px;
     font-family: 'Rubik', sans-serif;
     font-size: 1.2em;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgb(219, 190, 137 , 0.3);
+    /* ЗМІНА: Тінь під колір акценту */
+    box-shadow: 0 5px 15px rgba(255, 185, 0, 0.5);
     transition: all 0.3s ease;
-    white-space: nowrap; /* Запобігаємо перенесенню тексту кнопки */
-    overflow: hidden; /* Обрізаємо, якщо текст все ж вийде за межі */
-    text-overflow: ellipsis; /* Додаємо три крапки */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .catalog-slider__button:hover {
-    background: linear-gradient(to bottom, #FFF8EB, #F8E0B3);
+    /* ЗМІНА: Градієнт при hover */
+    background: linear-gradient(to top, #FFB900, #FF9900);
     transform: translateY(-2px);
-    border-color: #FF007F;
+    /* ЗМІНА: Зміна кольору кордону при hover (на більш контрастний) */
+    border-color: #47383B;
+}
+
+/* ======================================================================================= */
+/* ======================================================================================= */   
+/* ======================================================================================= */
+
+/* --- СТИЛІ СЕКЦІЇ "ЯК ЗАМОВИТИ?" --- */
+
+.how-to-order-section {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    /* ФОН: Використовуємо Base Color (#EADDC4) та його варіації для цяточок */
+    background-color: #EADDC4; 
+    background-image: radial-gradient(#D1C2A7 1px, transparent 1px); /* Трішки темніші цяточки */
+    background-size: 20px 20px;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+}
+
+.how-to-order-section__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 375px; 
+    box-sizing: border-box;
+    padding: 0 20px;
+    gap: 30px; 
+}
+
+/* Заголовок та підзаголовок */
+.how-to-order__header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.how-to-order__pretitle {
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #47383B; /* Dark Contrast */
+    /* Акцент: Вторинний Акцент (#F5D186) */
+    background-color: #F5D186; 
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(245, 209, 134, 0.6); /* Тінь під акцент */
+    margin-bottom: 10px;
+}
+
+.how-to-order__title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #47383B; /* Dark Contrast */
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Блок кроків */
+.how-to-order__steps {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.order-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    /* Фон кроку: Base Color + трішки світліший */
+    background-color: #FFF; 
+    /* М'яка коричнева пунктирна рамка */
+    border: 2px dashed #C0B7A5; 
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.order-step__icon {
+    flex-shrink: 0; 
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-step__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.order-step__content {
+    text-align: left;
+}
+
+.order-step__title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #47383B; /* Dark Contrast */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.order-step__description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1em;
+    color: #544548; /* Dark Contrast (трохи світліший) */
+    line-height: 1.4;
+}
+
+/* Кнопка "ЗАМОВИТИ ЗА ЗНИЖКОЮ" */
+.how-to-order__button {
+    width: 90%;
+    padding: 15px 0;
+    /* АКЦЕНТ: Яскравий Жовто-Помаранчевий градієнт */
+    background: linear-gradient(to right, #FFB900, #FF9900); 
+    color: #ffffff; /* Темний текст на яскравому фоні */
+    border: 2px solid #FF9900;
+    border-radius: 35px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.6); /* Тінь під акцент */
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    margin-top: 20px; 
+}
+
+.how-to-order__button:hover {
+    /* Трішки темніший стан при наведенні */
+    background: linear-gradient(to right, #FF9900, #E68A00);
+    transform: translateY(-2px);
+    border-color: #E68A00;
 }
