@@ -1,0 +1,1599 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  display: inline-block;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #000;
+  line-height: 1; /* 22/16 */
+  font-family: "Manrope";
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Manrope";
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+}
+
+button,
+select,
+option {
+  cursor: pointer;
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
+.wrapper {
+    
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+
+    background: #d5d2cc;
+}
+
+.wrapper--wrapper{
+    background: #F4F2EE;
+    max-width: 375px;
+}
+
+.wrapper > main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+[class*=__container] {
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.button {
+  text-align: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.3s ease-out all;
+  transition: 0.3s ease-out all;
+}
+
+
+/* =============================================================================================== */
+/* =============================================================================================== */
+/* =============================================================================================== */
+
+/* --- СТИЛІ ДЛЯ МОДАЛЬНОГО ВІКНА КОНТАКТІВ (ОНОВЛЕНА ПАЛІТРА) --- */
+
+/* Фон-накладка, що затемнює екран */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(74, 53, 43, 0.6); /* Напівпрозорий темно-коричневий */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+/* Коли модальне вікно активне */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Сам блок модального вікна */
+.contact-modal {
+    background-color: #F0E7D2; /* Світлий бежевий/кремовий фон модального вікна */
+    border-radius: 20px;
+    padding: 30px 20px;
+    width: 90%;
+    max-width: 380px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Тінь залишаємо темною для контрасту */
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    font-family: 'Manrope', sans-serif;
+}
+
+.modal-overlay.active .contact-modal {
+    transform: translateY(0);
+}
+
+/* Кнопка закриття */
+.contact-modal__close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #5C4535; /* Глибокий коричневий */
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.contact-modal__close-button:hover {
+    color: #4A352B; /* Темніший коричневий при наведенні */
+}
+
+/* Логотип Mizi Shop (колір самого логотипу змінювати не будемо, припускаючи, що він у вигляді зображення) */
+.contact-modal__logo {
+    margin-bottom: 25px;
+}
+
+.contact-modal__logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+/* Загальні стилі для секцій */
+.contact-modal__section {
+    margin-bottom: 25px;
+}
+
+.contact-modal__text {
+    font-size: 0.95em;
+    color: #5C4535; /* Глибокий коричневий */
+    margin-bottom: 10px;
+}
+
+/* Номер телефону */
+.contact-modal__phone {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #4A352B; /* Темний коричневий */
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-modal__phone:hover {
+    color: #F8C868; /* Теплий пісочний/жовтий при наведенні */
+}
+
+/* Соціальні іконки */
+.contact-modal__socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #5C4535; /* Глибокий коричневий */
+    color: #F0E7D2; /* Світлий бежевий для іконок */
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: #F8C868; /* Теплий пісочний/жовтий при наведенні */
+    color: #4A352B; /* Темний коричневий для іконок при наведенні */
+}
+
+/* Блок посилань внизу */
+.contact-modal__links {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-modal__link {
+    color: #5C4535; /* Глибокий коричневий */
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.contact-modal__link:hover {
+    color: #F8C868; /* Теплий пісочний/жовтий при наведенні */
+    text-decoration: underline;
+}
+
+.contact-modal__copyright {
+    color: #888; /* Нейтральний сірий для копірайту */
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+/* =============================================================================================== */
+/* =============================================================================================== */
+/* =============================================================================================== */
+
+.header {
+}
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+
+    background: #F0E7D2;
+    border-bottom: 2px solid rgb(74, 53, 43);
+    padding: 40px 15px 25px 15px;
+}
+.header__logo {
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    aspect-ratio: 40 / 40;
+    position: relative;
+
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 63, 200, 1); */
+}
+
+.header__company {
+    font-size: 28px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
+
+    color: rgb(74, 53, 43, 0.6);
+    background: #FDCE44;
+    padding: 6px 14px;
+    border-radius: 12px;
+    border: 2px solid rgb(74, 53, 43, 0.7);
+}
+
+.header__logo img {
+    width: 30px;
+    height: auto;
+    display: block;
+}
+
+/* --------------------- */
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+}
+
+.header-section__title{
+    font-family: "Rubik", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: rgb(74, 53, 43);
+}
+.header-section__subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(74, 53, 43, 0.7);
+}
+
+/* --------------------- */
+.menu-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    aspect-ratio: 40 / 40;
+    position: relative;
+    z-index: 10;
+    
+    background: #FDCE44;
+    border-radius: 50%;
+    border: 1px solid rgb(74, 53, 43);;
+}
+
+.menu-header__burger{
+    position: relative;
+    width: 50%;
+    aspect-ratio: 20 / 17;
+}
+
+.menu-header__burger span,
+.menu-header__burger::before,
+.menu-header__burger::after{
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: rgb(74, 53, 43);;
+    right: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.menu-header__burger::before{
+    top: 0;
+}
+
+.menu-header__burger::after{
+    bottom: 0;
+}
+
+.menu-header__burger span{
+    top: calc(50% - 1.41px);
+}
+
+/* ============================================================ */
+/* ============================================================ */
+/* ============================================================ */
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+}
+
+.section--block{
+    display: flex; /* Для центрування зображення, якщо потрібно */
+    flex-direction: column; /* Елементи один під одним */
+    align-items: center; /* Центрування по горизонталі */
+    width: 100%; /* Приклад ширини, може бути auto або інша */
+    margin: 20px auto; /* Центрування блоку на сторінці */
+    gap: 40px;
+}
+
+/* Базові стилі для контейнера */
+.content-intro {
+    position: relative; /* Щоб позиціонувати дочірні елементи абсолютно */
+}
+
+.content-intro__img img {
+    width: 100%; /* Зберігає пропорції */
+    display: block; /* Видаляє зайві відступи під зображенням */
+    border-radius: 20px 20px 0 0; /* Заокруглює тільки верхні кути зображення, якщо воно повністю зверху */
+    overflow: hidden;
+    aspect-ratio: 345 / 456;
+    border-radius: 20px; /* Заокруглені кути всього блоку, як на фоні */
+    background-color: #f1ecf3; /* Фоновий колір, схожий на сіро-жовтий з картинки */
+}
+
+.content-intro__img img {
+    display: flex;
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Блок цін */
+.content-intro__block-price {
+    position: absolute; /* Позиціонуємо абсолютно відносно .content-intro */
+    top: -5%; /* Відступ зверху */
+    right: -5%; /* Центруємо по горизонталі */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрування цін одна відносно одної */
+    z-index: 10; /* Щоб блок був над зображенням */
+}
+
+.content-intro__new-price {
+    background-color: #F8C868;
+    color: #4A352B;
+    padding: 8px 20px;
+    border-radius: 25px; /* Сильне заокруглення */
+    font-size: 2em; /* Великий розмір шрифту */
+    font-weight: bold;
+    line-height: 1; /* Для кращого вертикального вирівнювання тексту */
+    white-space: nowrap; /* Щоб текст не переносився */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь для об'ємності */
+    margin-bottom: -10px; /* Перекриває стару ціну */
+    position: relative; /* Для z-index, якщо буде конфлікт */
+    z-index: 2; /* Щоб була над старою ціною */
+}
+
+.content-intro__old-price {
+    background-color: #F0E7D2;
+    color: #5C4535;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 1.2em;
+    text-decoration: line-through; /* Перекреслений текст */
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Тінь */
+    position: relative;
+    bottom: -10%; /* Піднімаємо вгору, щоб частково перекривалась новою ціною */
+    z-index: 3; /* Щоб була під новою ціною */
+}
+
+/* Блок дій (кількість та кнопка) */
+.content-intro__actions {
+    position: absolute; /* Позиціонуємо абсолютно відносно .content-intro */
+    bottom: -8%; /* Відступ знизу */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px); /* Ширина майже на весь контейнер, з відступами */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10; /* Щоб блок був над зображенням */
+}
+
+.content-intro__actions-title {
+    background-color: #F8C868;/*'ятний колір, як на зображенні */
+    color: #4A352B;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    width: fit-content; /* Ширина по контенту */
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: -2%;
+    z-index: 2;
+}
+
+.content-intro__action-by {
+    background: linear-gradient(to right, #FFC107, #FFA000);
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+    transition: all 0.3s ease; /* Анімація при наведенні */
+    width: 100%; /* Кнопка на всю ширину батьківського елемента */
+    max-width: 300px; /* Обмеження ширини кнопки */
+    z-index: 1;
+}
+
+.content-intro__action-by:hover {
+    transform: translateY(-2px); /* Невеликий підйом при наведенні */
+    box-shadow: 0 7px 20px rgba(255, 102, 196, 0.6);
+}
+
+/* ======================================================================================= */
+/* ======================================================================================= */
+/* ======================================================================================= */
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ ВІДЕО ОГЛЯДУ (home__video-review) --- */
+
+.video-review {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #F0E7D2; /* Світлий бежевий фон, як на макеті */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px); /* Дрібні крапки */
+    background-size: 20px 20px;
+    font-family: 'Manrope', sans-serif; /* Основний шрифт для секції */
+    align-items: center; /* Центрування вмісту секції по горизонталі */
+}
+
+/* Контейнер для вмісту секції (section--block вже має ширину 375px) */
+.video-review__container {
+    /* section--block вже має: */
+    /* width: 375px; */
+    /* margin: 20px auto; */
+    /* padding: 0 20px; */
+    /* box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрування всіх елементів в контейнері */
+    gap: 30px; /* Відстань між основними блоками всередині контейнера */
+}
+
+/* Кнопка "ВІДЕООГЛЯД 🤪" */
+.video-review__button-link {
+    display: inline-flex; /* Щоб контент був по центру і мав відступи */
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #F8C868; /* Теплий пісочний/жовтий */
+    color: #4A352B; /* Темний коричневий */
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif; /* Для тексту кнопки */
+    font-size: 1.1em;
+    font-weight: 700;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap; /* Щоб текст не переносився */
+}
+
+.video-review__button-link .emoji {
+    margin-left: 8px; /* Відступ для емодзі */
+    font-size: 1.2em; /* Трохи більший розмір емодзі */
+    line-height: 1; /* Для кращого вирівнювання */
+}
+
+.video-review__button-link:hover {
+    background-color: #E0B359; /* Темніший жовтий при наведенні */
+    transform: translateY(-2px);
+}
+
+/* --- СТИЛІ ДЛЯ ВІДЕОПЛЕЄРА --- */
+.video-review__player {
+    width: 335px; /* Ширина відео блоку = 375px - 2*20px padding */
+    background-color: #4B4C60; /* Темний сіро-фіолетовий фон, як на макеті */
+    border-radius: 20px;
+    overflow: hidden; /* Обрізає вміст за межами заокруглення */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.video-player__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Напівпрозорий темний фон для хедеру */
+    color: #fff;
+    position: relative; /* Для правильного z-index, якщо потрібно */
+    z-index: 2; /* Над iframe */
+}
+
+.video-player__channel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.video-player__avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.video-player__info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.video-player__title {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Обмеження ширини заголовка відео */
+}
+
+.video-player__channel-name {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* Кнопка "Підписатися" */
+.video-player__subscribe-button {
+    background-color: #F8C868; /* Жовтий акцент */
+    color: #4A352B; /* Темний коричневий текст */
+    border: none;
+    border-radius: 15px;
+    padding: 5px 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.video-player__subscribe-button:hover {
+    background-color: #E0B359;
+}
+
+/* Кнопка "Поділитися" */
+.video-player__share-button {
+    background: none;
+    border: none;
+    color: #F8C868; /* Жовтий акцент для іконки */
+    font-size: 1.4em; /* Розмір іконки */
+    cursor: pointer;
+    transition: color 0.2s ease;
+    margin-left: auto; /* Щоб відштовхнути від інших елементів */
+}
+
+.video-player__share-button svg {
+    width: 20px; /* Фіксований розмір для SVG */
+    height: 20px;
+    fill: currentColor; /* Щоб SVG приймало колір батьківського елемента */
+}
+
+.video-player__share-button:hover {
+    color: #E0B359;
+}
+
+
+.video-player__content {
+    position: relative;
+    padding-bottom: 56.25%; /* Співвідношення сторін 16:9 (для YouTube) */
+    height: 0;
+    overflow: hidden;
+    background-color: #333; /* Темний фон, поки відео не завантажилося */
+    flex-grow: 1; /* Займе весь доступний простір */
+}
+
+.video-player__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Видаляємо рамку iframe */
+    z-index: 1; /* Під overlay-text, якщо overlay-text використовується для показу перед відтворенням */
+}
+
+.video-player__overlay-text {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Напівпрозорий чорний фон */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 3; /* Поверх iframe */
+    opacity: 0.8; /* Трохи прозоріший */
+}
+
+/* --- СТИЛІ ДЛЯ МІНІАТЮР ТОВАРІВ --- */
+.product-thumbnails {
+    display: flex;
+    justify-content: center; /* Центрування мініатюр */
+    gap: 10px; /* Відстань між мініатюрами */
+    flex-wrap: wrap; /* Дозволяє переносити мініатюри на новий рядок на вузьких екранах */
+    width: 100%; /* Займає всю доступну ширину контейнера */
+    max-width: 335px; /* Обмеження ширини */
+}
+
+.product-thumbnails__item {
+    width: 50px; /* Фіксована ширина мініатюри */
+    height: 60px; /* Фіксована висота мініатюри */
+    border-radius: 12px;
+    object-fit: cover; /* Обрізає зображення, щоб воно заповнило контейнер */
+    border: 2px solid transparent; /* Для рамки при активності */
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.product-thumbnails__item:hover {
+    border-color: #F8C868; /* Жовта рамка при наведенні */
+    transform: translateY(-2px);
+}
+
+/* Якщо потрібен стиль для активної мініатюри (наприклад, якщо по ній клікнули) */
+/* .product-thumbnails__item.active {
+    border-color: #F8C868;
+    box-shadow: 0 0 8px rgba(248, 200, 104, 0.7);
+} */
+
+/* ============================================================================================== */
+/* ============================================================================================== */
+/* ============================================================================================== */
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ ХАРАКТЕРИСТИК (details) --- */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #F0E7D2; /* Світлий бежевий фон */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
+    background-size: 20px 20px;
+    align-items: center; /* Центрування секції */
+}
+
+.details__container {
+    /* section--block вже має: width: 375px; padding: 0 20px; */
+    gap: 25px; /* Менший відступ між блоками */
+    text-align: left; /* Вирівнювання тексту */
+    width: 375px; /* Фіксована ширина */
+    box-sizing: border-box;
+}
+
+/* Заголовок (header-section вже стилізований, але стилізуємо тут виділений текст) */
+.details__header {
+    text-align: left;
+    width: 100%;
+}
+
+.details__header .header-section__title {
+    /* Додаткові стилі для заголовка, якщо потрібно */
+    font-size: 2.3em;
+}
+
+.details__header .highlight-text {
+    color: #4B4C60; /* Темний сіро-фіолетовий для контрасту/виділення */
+}
+
+.details__description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #5C4535; /* Глибокий коричневий */
+    line-height: 1.5;
+    padding: 0 20px; /* Внутрішній відступ для тексту опису */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- БЛОК ХАРАКТЕРИСТИК ТА ДОГЛЯДУ (info-block / care-block) --- */
+
+.info-block,
+.care-block {
+    width: 335px; /* 375px - 2*20px padding контейнера */
+    margin: 0 20px; /* Вирівнювання по центру */
+    box-sizing: border-box;
+}
+
+/* Тепер це div-заголовки, а не кнопки */
+.info-block__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    /* Прибираємо cursor: pointer; та transition */
+}
+
+.info-block__title .emoji {
+    margin-left: 8px;
+    font-size: 1.2em;
+}
+
+/* Стиль для заголовка "ХАРАКТЕРИСТИКИ" */
+.info-block__title--features {
+    background-color: #F8C868; /* Теплий пісочний/жовтий, як на Image 2 */
+    color: #4A352B; /* Темний коричневий текст, як на Image 2 */
+}
+
+/* Стиль для заголовка "ДОГЛЯД" */
+.info-block__title--care {
+    background-color: #4B4C60; /* Темний сіро-фіолетовий, як на Image 1 */
+    color: #F0E7D2; /* Світлий бежевий текст, як на Image 1 */
+}
+
+/* --- СПИСОК ХАРАКТЕРИСТИК --- */
+
+.info-block__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-block__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #D1C6B3; /* Пунктирна лінія */
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95em;
+    color: #4A352B;
+}
+
+.info-block__label {
+    font-weight: 600;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.info-block__value {
+    font-weight: 400;
+    text-align: right;
+    color: #5C4535;
+}
+
+/* --- СПИСОК ДОГЛЯДУ --- */
+
+.care-block__list {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    border-radius: 15px;
+    background-color: #FFF3E0; 
+    border: 2px solid #F8C868;
+}
+
+.care-block__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95em;
+    color: #4A352B;
+    line-height: 1.4;
+}
+
+.care-block__icon {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin-top: -2px;
+}
+
+/* Кольори для тексту елементів догляду (як на попередньому макеті) */
+.care-block__item--wash { color: #4B4C60; }
+.care-block__item--bleach { color: #9B59B6; }
+.care-block__item--dry { color: #3498DB; }
+.care-block__item--iron { color: #E74C3C; }
+.care-block__item--clean { color: #4A352B; }
+
+/* ============================================================================================ */
+/* ============================================================================================ */
+/* ============================================================================================ */
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ РОЗМІРІВ (dimensions) --- */
+
+/* --- ГЛОБАЛЬНІ СТИЛІ СЕКЦІЙ (ЗАГАЛЬНІ) --- */
+
+.dimensions,
+.reviews-block {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #F0E7D2; /* Світлий бежевий фон */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Manrope', sans-serif;
+    align-items: center; 
+}
+
+/* КОНТЕЙНЕР (фіксована ширина) */
+.dimensions__container,
+.reviews-block__container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 25px;
+    width: 375px; 
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+/* ЗАГОЛОВКИ (спільні стилі) */
+.dimensions__header,
+.reviews-block__header {
+    width: 100%;
+}
+
+.dimensions__header .header-section__title,
+.reviews-block__header .header-section__title {
+    font-size: 2.3em;
+    color: #4A352B; 
+}
+
+/* --- 1. СТИЛІ ДЛЯ СЕКЦІЇ РОЗМІРІВ (.dimensions) - FADE SLIDER --- */
+
+.dimensions__header .highlight-text {
+    color: #4B4C60; /* Темний сіро-фіолетовий */
+}
+
+/* БЛОК ЗОБРАЖЕННЯ / СЛАЙДЕРА */
+.dimensions__content {
+    width: 100%; 
+    margin: 0; 
+    background-color: #FFF8EB; /* Дуже світлий кремовий/пісочний */
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    height: 400px; /* ФІКСОВАНА ВИСОТА */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid #F8C868; /* Жовта рамка */
+}
+
+/* Слайди FADE-слайдера */
+.dimensions__content .slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.dimensions__content .slider-image {
+    /* !!! FADE LOGIC !!! */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+    background-color: transparent;
+    transition: opacity 0.7s ease-in-out;
+    border-radius: 10px;
+}
+
+/* --- НАВІГАЦІЯ: Dimensions (Широкі кнопки з рамкою) --- */
+.dimensions__navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    margin: 0; 
+    gap: 20px;
+}
+
+.dimensions__navigation .navigation-buttons__prev,
+.dimensions__navigation .navigation-buttons__next {
+    flex: 1;
+    height: 55px;
+    background-color: #F8F0E3; 
+    border: 2px solid #5C4535; 
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    outline: none;
+}
+
+.dimensions__navigation .navigation-buttons__prev:hover,
+.dimensions__navigation .navigation-buttons__next:hover {
+    background-color: #F8C868; 
+    border-color: #4A352B; 
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
+}
+
+.dimensions__navigation .navigation-buttons__prev:active,
+.dimensions__navigation .navigation-buttons__next:active {
+    transform: translateY(-1px); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dimensions__navigation .navigation-buttons__prev svg,
+.dimensions__navigation .navigation-buttons__next svg {
+    stroke: #4A352B; 
+    transition: stroke 0.3s ease;
+}
+
+.dimensions__navigation .navigation-buttons__prev:hover svg,
+.dimensions__navigation .navigation-buttons__next:hover svg {
+    stroke: #F0E7D2; 
+}
+
+
+/* ========================================================================================== */
+
+
+/* --- 2. СТИЛІ ДЛЯ СЕКЦІЇ ВІДГУКІВ (.reviews-block) - SCROLL SLIDER --- */
+
+.reviews-block__header {
+    text-align: center;
+}
+
+.reviews-block__header .highlight-text {
+    color: #F8C868; /* Жовтий акцент */
+}
+
+.reviews-block__header .header-section__subtitle {
+    color: #5C4535;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* Акцентна кнопка */
+.reviews-block__accent-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background: linear-gradient(to bottom, #fad68e, #f6c970); 
+    color: #4A352B; 
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(255, 242, 102, 0.6); 
+    transition: all 0.2s ease;
+}
+
+
+/* --- БЛОК СЛАЙДЕРА (ГОРИЗОНТАЛЬНА ПРОКРУТКА) --- */
+
+.reviews-block__slider-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px; 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    height: 450px; /* ФІКСОВАНА ВИСОТА */
+    overflow-y: hidden; 
+}
+
+.reviews-block__slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews-block__slider-track {
+    display: flex;
+    gap: 15px; 
+    padding: 0 20px; 
+}
+
+.review-slide {
+    flex-shrink: 0;
+    width: 335px; /* Ширина одного скріншота */
+    scroll-snap-align: start;
+    background-color: #fff; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 430px; /* Встановлюємо ФІКСОВАНУ ВИСОТУ для самого слайда */
+}
+
+.review-slide__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* --- НАВІГАЦІЯ: Reviews (Мінімалістичні круглі кнопки) --- */
+
+.reviews-block__navigation {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    margin-top: 10px;
+}
+
+.reviews-block__navigation .navigation-buttons__prev,
+.reviews-block__navigation .navigation-buttons__next {
+    /* МІНІМАЛІСТИЧНИЙ СТИЛЬ */
+    flex: 0; 
+    width: 45px; 
+    aspect-ratio: 1 / 1;
+    background-color: transparent; 
+    border: 2px solid #5C4535; /* Товста коричнева рамка */
+    border-radius: 50%; 
+    
+    transition: all 0.2s ease;
+    box-shadow: none;
+    margin: 0 10px; 
+}
+
+.reviews-block__navigation .navigation-buttons__prev:hover,
+.reviews-block__navigation .navigation-buttons__next:hover {
+    background-color: rgba(248, 200, 104, 0.3); 
+    border-color: #F8C868; 
+    transform: none; 
+}
+
+.reviews-block__navigation .navigation-buttons__prev svg,
+.reviews-block__navigation .navigation-buttons__next svg {
+    stroke: #4A352B; 
+    width: 30px; 
+    height: 30px;
+}
+
+.reviews-block__navigation .navigation-buttons__prev:hover svg,
+.reviews-block__navigation .navigation-buttons__next:hover svg {
+    stroke: #E0B359; 
+}
+
+/* =============================================================================== */
+/* =============================================================================== */
+/* =============================================================================== */
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ БЛОГЕРІВ (bloggers-block) --- */
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ БЛОГЕРІВ (bloggers-block) --- */
+
+.bloggers-block {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #F0E7D2; /* Світлий бежевий фон */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
+    background-size: 20px 20px;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+}
+
+.bloggers-block__container {
+    width: 375px; 
+    box-sizing: border-box;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+/* Акцентна кнопка "ВІДГУКИ 🥰" */
+.bloggers-block__accent-button {
+    /* Робимо її більш виразною */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background: linear-gradient(to bottom, #fad68e, #f6c970);
+    color: #4A352B; 
+    color: #4A352B; 
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    /* Змінюємо тінь на рожеву, як на прикладі */
+    box-shadow: 0 5px 15px rgba(255, 242, 102, 0.6); 
+    transition: all 0.2s ease;
+    margin-bottom: 5px; 
+    border: 2px solid #E0B359; /* Додаємо рамку того ж кольору */
+}
+
+/* --- СЛАЙДЕР БЛОГЕРІВ (SCROLL LOGIC) --- */
+
+.bloggers-block__slider-wrapper {
+    /* Фон для слайдера робимо світло-жовтим для відчуття об'єму */
+    background-color: #FFF8EB; 
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Глибша тінь */
+    padding-bottom: 20px; /* Більший відступ знизу для чистого вигляду */
+    
+    width: 100%; 
+    overflow-x: scroll; 
+    scroll-snap-type: x mandatory; 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    
+    height: 300px;
+    overflow-y: hidden;
+}
+
+.bloggers-block__slider-track {
+    display: flex;
+    gap: 25px; /* Збільшуємо відступ між картками */
+    width: fit-content; 
+    padding: 0 25px; /* Збільшуємо внутрішній відступ */
+    height: 100%;
+    align-items: center; 
+}
+
+/* Стиль для кожного слайда */
+.blogger-slide {
+    flex-shrink: 0; 
+    width: 155px; /* Трохи скорегована ширина */
+    height: 270px;
+    
+    scroll-snap-align: center; /* Центруємо слайди при прокрутці */
+    text-decoration: none; 
+    color: #4A352B;
+    padding-top: 20px;
+    
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Картки всередині слайда */
+.blogger-slide .blogger-slide__image-wrapper {
+    position: relative;
+    width: 140px; 
+    height: 140px; 
+    margin: 0 auto 10px; 
+    border-radius: 50%; /* Це робить його круглим */
+    overflow: hidden; /* Це обрізає краї зображення */
+    box-shadow: 0 0 0 4px #ddbc7a, 0 0 0 6px #F8C868; 
+}
+
+.blogger-slide .blogger-slide__image {
+    width: 100%;
+    height: 100%;
+    /* КЛЮЧОВЕ ВИПРАВЛЕННЯ: використовуємо cover */
+    object-fit: cover; 
+}
+
+.blogger-slide .blogger-slide__play-icon {
+    /* Змінюємо стиль на більш помітний жовтий/коричневий */
+    background-color: #F8C868; 
+    box-shadow: 0 0 0 4px rgba(74, 53, 43, 0.4); /* Темна тінь */
+}
+
+.blogger-slide .blogger-slide__play-icon svg {
+    fill: #4A352B; /* Темний коричневий трикутник */
+}
+
+.blogger-slide .blogger-slide__username {
+    /* Робимо більш схожим на лейбл/напис */
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #4A352B;
+    background-color: #F8C868; 
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- НАВІГАЦІЯ: Bloggers (ЛЕГКИЙ МІНІМАЛІСТИЧНИЙ СТИЛЬ) --- */
+
+.bloggers-block__navigation {
+    width: 100%;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.bloggers-block__navigation .navigation-buttons__prev,
+.bloggers-block__navigation .navigation-buttons__next {
+    /* Створюємо стиль "легкої" кнопки: прозорий фон, тонка рамка */
+    flex: 1;
+    width: 150px; 
+    height: 50px;
+    background-color: transparent; /* Прозорий фон */
+    border: 2px solid #D1C6B3; /* Тонка сіро-бежева рамка */
+    border-radius: 30px;
+    box-shadow: none; /* Прибираємо тінь за замовчуванням */
+    transition: all 0.2s ease;
+}
+
+.bloggers-block__navigation .navigation-buttons__prev:hover,
+.bloggers-block__navigation .navigation-buttons__next:hover {
+    background-color: #F8C868; /* Яскравий жовтий при наведенні */
+    border-color: #F8C868; 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* М'яка тінь при наведенні */
+}
+
+.bloggers-block__navigation .navigation-buttons__prev svg,
+.bloggers-block__navigation .navigation-buttons__next svg {
+    stroke: #5C4535; /* Глибокий коричневий */
+}
+
+.bloggers-block__navigation .navigation-buttons__prev:hover svg,
+.bloggers-block__navigation .navigation-buttons__next:hover svg {
+    stroke: #4A352B; /* Темний коричневий */
+}
+
+/* ======================================================================================= */
+/* ======================================================================================= */
+/* ======================================================================================= */
+
+/* --- СТИЛІ СЕКЦІЇ КАТАЛОГУ КРІСЕЛ (.catalog-section) --- */
+/* --- СТИЛІ СЕКЦІЇ КАТАЛОГУ КРІСЕЛ (.catalog-section) --- */
+
+.catalog-section {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    background-color: #F0E7D2; /* Світлий бежевий фон */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
+    background-size: 20px 20px;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+}
+
+.catalog-section__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 375px; 
+    box-sizing: border-box;
+    padding: 0 20px;
+    gap: 30px; /* Відстань між картками */
+}
+
+.catalog-section__title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.2em;
+    font-weight: 800;
+    color: #4A352B; /* Темний коричневий */
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* --- СТИЛІ ОДНІЄЇ КАРТКИ ТОВАРУ (.catalog-slider) --- */
+
+.catalog-slider {
+    width: 100%;
+}
+
+.catalog-slider__card {
+    width: 100%; /* 335px */
+    background: linear-gradient(to bottom, #FFF8EB, #EDE2D4); /* М'який градієнт від світлого кремового до легкого бежевого */
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 15px; 
+    box-sizing: border-box;
+    border: 1px solid #D1C6B3; /* Легка облямівка, щоб картка не зливалася з фоном */
+}
+
+/* КОНТЕЙНЕР ЗОБРАЖЕННЯ (Слайдер) */
+.catalog-slider__wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Фіксована висота */
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #F8C868; /* Жовта рамка для акценту */
+    padding: 0; 
+}
+
+.catalog-slider__track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+/* Слайди та зображення */
+.catalog-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.catalog-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заповнює весь простір */
+    background-color: #FFF8EB; /* Фон під зображенням = фон картки */
+    border-radius: 20px;
+}
+
+.catalog-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --- СТРІЛКИ НАВІГАЦІЇ ВБУДОВАНІ В ЗОБРАЖЕННЯ --- */
+
+.catalog-slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    background-color: #F8C868; /* Жовтий фон для видимості */
+    border: 2px solid #4A352B; /* Темна рамка */
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* `pointer-events: auto;` вже було в минулих версіях, залишаємо, якщо потрібно */
+}
+
+.catalog-slider__arrow--prev { left: 10px; }
+.catalog-slider__arrow--next { right: 10px; }
+
+.catalog-slider__arrow:hover {
+    background-color: #E0B359; /* Темніший жовтий hover */
+    border-color: #4A352B;
+}
+
+.catalog-slider__arrow svg {
+    stroke: #4A352B; /* Темний коричневий */
+    transition: stroke 0.2s ease;
+    width: 20px; /* Забезпечуємо розмір іконок */
+    height: 20px;
+}
+
+.catalog-slider__arrow:hover svg {
+    stroke: #FFF; /* Білий при hover */
+}
+
+/* --- ДЕТАЛІ КАРТКИ --- */
+
+.catalog-slider__details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.catalog-slider__name {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #4A352B; /* Темний коричневий текст */
+    margin-top: 5px; 
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    /* ВИПРАВЛЕННЯ: Обмеження, щоб текст не виходив за межі */
+    padding: 0 10px; 
+    overflow-wrap: break-word; /* Перенесення довгих слів */
+    line-height: 1.2; /* Для кращого вигляду багаторядкового тексту */
+}
+
+.catalog-slider__price-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Збільшуємо відступ між цінами */
+    margin-bottom: 25px;
+    /* ВИПРАВЛЕННЯ: Обмеження, щоб елементи не виходили за межі */
+    padding: 0 5px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.price-option { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+/* Стиль цінових лейблів (на 2 подушки, на 3 подушки) */
+.price-option__label {
+    /* Змінено: М'який жовтий градієнт замість суцільного кольору */
+    background: linear-gradient(to bottom, #F8C868, #E0B359);
+    color: #4A352B; 
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgba(224, 179, 89, 0.5); /* Тінь під колір градієнта */
+    white-space: nowrap; /* Зберігаємо в один рядок */
+    min-width: 90px; /* Забезпечуємо однакову мінімальну ширину */
+    text-align: center; /* Центруємо текст */
+}
+
+.price-option__value {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6em;
+    font-weight: 800;
+    /* Змінено: Прибираємо яскраво-блакитний, використовуємо темний коричневий */
+    color: #4A352B; 
+}
+
+/* Кнопка ЗАМОВИТИ */
+.catalog-slider__button {
+    width: 90%;
+    padding: 15px 0;
+    /* Змінено: М'який рожевий градієнт */
+    background: linear-gradient(to bottom, #FFF8EB, #F8E0B3);
+    color: #4A352B; /* Темний текст на рожевому */
+    border: 2px solid #f8dca7;
+    border-radius: 35px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgb(219, 190, 137 , 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap; /* Запобігаємо перенесенню тексту кнопки */
+    overflow: hidden; /* Обрізаємо, якщо текст все ж вийде за межі */
+    text-overflow: ellipsis; /* Додаємо три крапки */
+}
+
+.catalog-slider__button:hover {
+    background: linear-gradient(to bottom, #FFF8EB, #F8E0B3);
+    transform: translateY(-2px);
+    border-color: #FF007F;
+}
