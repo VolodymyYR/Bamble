@@ -1,0 +1,48 @@
+/* Оновлений CSS для таблиці менеджера */
+#managerOrdersTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#managerOrdersTable th,
+#managerOrdersTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+#managerOrdersTable th {
+    background-color: #f2f2f2;
+    color: #000000; /* Чорний текстовий колір */
+    font-weight: bold;
+}
+
+#managerOrdersTable tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Стилі для SELECT статусу */
+.status-select {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 120px;
+    border: 1px solid #ddd; /* Базовий колір рамки */
+}
+
+/* Кольори для кнопок та елементів */
+.delete-btn {
+    background-color: #FF4B3A !important; /* Акцентний колір */
+    color: white !important;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #cc3c2e !important;
+}

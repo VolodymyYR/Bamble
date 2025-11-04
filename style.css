@@ -24,7 +24,7 @@ body {
 
 body {
   color: #000;
-  line-height: 1; /* 22/16 */
+  line-height: 1.5; /* 22/16 */
   font-family: "Manrope";
   font-size: 16px;
   -ms-text-size-adjust: 100%;
@@ -201,7 +201,7 @@ h6 {
     right: 15px;
     background: none;
     border: none;
-    font-size: 2em;
+    font-size: 16px;
     color: #5C4535; /* Глибокий коричневий */
     cursor: pointer;
     line-height: 1;
@@ -228,7 +228,7 @@ h6 {
 }
 
 .contact-modal__text {
-    font-size: 0.95em;
+    font-size: 16px;
     color: #5C4535; /* Глибокий коричневий */
     margin-bottom: 10px;
 }
@@ -236,8 +236,8 @@ h6 {
 /* Номер телефону */
 .contact-modal__phone {
     font-family: 'Rubik', sans-serif;
-    font-size: 1.6em;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 900;
     color: #4A352B; /* Темний коричневий */
     text-decoration: none;
     display: block;
@@ -265,7 +265,7 @@ h6 {
     border-radius: 50%;
     background-color: #5C4535; /* Глибокий коричневий */
     color: #F0E7D2; /* Світлий бежевий для іконок */
-    font-size: 1.5em;
+    font-size: 24px;
     text-decoration: none;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -286,8 +286,8 @@ h6 {
 .contact-modal__link {
     color: #5C4535; /* Глибокий коричневий */
     text-decoration: none;
-    font-size: 0.9em;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     transition: color 0.2s ease;
 }
 
@@ -298,7 +298,7 @@ h6 {
 
 .contact-modal__copyright {
     color: #888; /* Нейтральний сірий для копірайту */
-    font-size: 0.8em;
+    font-size: 14px;
     margin-top: 20px;
 }
 
@@ -321,7 +321,25 @@ h6 {
     background: #EADDC4;
     /* ЗМІНА: Темний коричневий роздільник */
     border-bottom: 2px solid #47383B;
-    padding: 40px 15px 25px 15px;
+    padding: 20px 15px 20px 15px;
+}
+
+.header__call{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #FFB900; /* Теплий пісочний/жовтий при наведенні */
+    border: 1px solid #47383B;
+}
+
+.header__call img{
+    width: 65%;
+    object-fit: cover;
 }
 
 .header__logo {
@@ -329,7 +347,7 @@ h6 {
 }
 
 .header__company {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 900;
     letter-spacing: 2px;
     
@@ -345,7 +363,7 @@ h6 {
 }
 
 .header__logo img {
-    width: 30px;
+    width: 75px;
     height: auto;
     display: block;
 }
@@ -366,6 +384,7 @@ h6 {
     font-weight: 900;
     /* ЗМІНА: Темний коричневий */
     color: #47383B;
+    line-height: 1;
 }
 .header-section__subtitle {
     font-size: 16px;
@@ -497,8 +516,8 @@ h6 {
     color: #47383B;
     padding: 8px 20px;
     border-radius: 25px; 
-    font-size: 2em; 
-    font-weight: bold;
+    font-size: 28px; 
+    font-weight: 900;
     line-height: 1; 
     white-space: nowrap; 
     /* Тінь адаптована під жовтий */
@@ -515,9 +534,9 @@ h6 {
     color: #47383B;
     padding: 5px 15px;
     border-radius: 20px;
-    font-size: 1.2em;
+    font-size: 16px;
     text-decoration: line-through; 
-    font-weight: bold;
+    font-weight: 400;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
     position: relative;
     bottom: -10%; 
@@ -544,28 +563,33 @@ h6 {
     color: #47383B;
     padding: 10px 20px;
     border-radius: 25px;
-    font-size: 1.1em;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 400;
     box-shadow: 0 3px 6px rgba(255, 185, 0, 0.4);
     width: fit-content; 
     white-space: nowrap;
     text-align: center;
     margin-bottom: -2%;
     z-index: 2;
+    text-transform: uppercase;
 }
 
+/* --------------------------------------------------- */
+/* СТИЛІ КНОПКИ ДЛЯ АНІМАЦІЇ ХВИЛІ */
+/* --------------------------------------------------- */
+
 .content-intro__action-by {
-    /* ЗМІНА: Градієнт кнопки від яскравого жовтого до помаранчевого */
+    position: relative; /* Необхідно для абсолютно позиціонованої хвилі */
+    overflow: hidden; /* Приховує хвилю за межами кнопки */
+    /* ... існуючі стилі кнопки ... */
     background: linear-gradient(to right, #FFB900, #FF9900);
-    /* ЗМІНА: Білий текст для контрасту */
-    color: #FFF; 
+    color: #47383B; 
     padding: 15px 30px;
     border: none;
     border-radius: 30px;
-    font-size: 1.3em;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 900;
     cursor: pointer;
-    /* Тінь адаптована під градієнт */
     box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6);
     transition: all 0.3s ease; 
     width: 100%; 
@@ -575,9 +599,43 @@ h6 {
 
 .content-intro__action-by:hover {
     transform: translateY(-2px); 
-    /* ЗМІНА: Більш глибока тінь при hover */
     box-shadow: 0 7px 20px rgba(255, 153, 0, 0.7);
 }
+
+/* Елемент хвилі */
+.ripple-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* Біла напівпрозора хвиля */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Розміщуємо під текстом кнопки */
+    pointer-events: none; /* Щоб не блокувати кліки */
+    
+    /* Запускаємо анімацію */
+    animation: ripple-animation 1.5s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-delay: 1s; /* Затримка перед першим запуском */
+}
+
+/* --------------------------------------------------- */
+/* КЛЮЧОВІ КАДРИ АНІМАЦІЇ */
+/* --------------------------------------------------- */
+@keyframes ripple-animation {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 250px; /* Хвиля розходиться */
+        height: 250px;
+        opacity: 0; /* Хвиля зникає */
+    }
+}
+
 
 /* ======================================================================================= */
 /* ======================================================================================= */
@@ -835,13 +893,14 @@ h6 {
 
 /* Заголовок */
 .details__header {
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
 .details__header .header-section__title {
-    font-size: 2.3em;
+    font-size: 32px;
     /* ЗМІНА: Темний коричневий */
+    line-height: 1;
     color: #47383B;
 }
 
@@ -914,7 +973,7 @@ h6 {
 .info-block__list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 15px 0 0 0;
 }
 
 .info-block__item {
@@ -940,6 +999,7 @@ h6 {
     text-align: right;
     /* ЗМІНА: Темний коричневий */
     color: #47383B;
+    line-height: 1.5;
 }
 
 /* --- СПИСОК ДОГЛЯДУ --- */
@@ -1020,9 +1080,10 @@ h6 {
 
 .dimensions__header .header-section__title,
 .reviews-block__header .header-section__title {
-    font-size: 2.3em;
+    font-size: 32px;
     /* ЗМІНА: Темний коричневий */
     color: #47383B; 
+    line-height: 1;
 }
 
 /* --- 1. СТИЛІ ДЛЯ СЕКЦІЇ РОЗМІРІВ (.dimensions) - FADE SLIDER --- */
@@ -1176,8 +1237,7 @@ h6 {
     border-radius: 25px;
     text-decoration: none;
     font-family: 'Rubik', sans-serif;
-    font-size: 1em;
-    font-weight: 700;
+    font-weight: 400;
     /* ЗМІНА: Тінь під колір акценту */
     box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6); 
     transition: all 0.2s ease;
@@ -1193,7 +1253,7 @@ h6 {
     padding-bottom: 10px; 
     -ms-overflow-style: none; 
     scrollbar-width: none; 
-    height: 450px; 
+    height: 310px; 
     overflow-y: hidden; 
 }
 
@@ -1211,20 +1271,39 @@ h6 {
     flex-shrink: 0;
     width: 335px; 
     scroll-snap-align: start;
-    /* ЗБЕРІГАЄМО: Білий фон для контрасту зі світло-бежевою секцією */
     background-color: #fff; 
     border-radius: 20px;
-    overflow: hidden;
-    /* Тінь залишається нейтральною */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    height: 430px; 
+    height: 300px; /* ⭐️ ФІКСОВАНА ВИСОТА СЛАЙДА (ЗАЛИШАЄМО ЯК БУЛО) */
+    overflow: hidden;
+}
+
+/* Обгортка, яка контролює внутрішню висоту */
+.review-slide__content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-slide__image-container {
+    /* ⭐️ КЛЮЧОВЕ ЗМІНА: Встановлюємо максимальну висоту для області відображення */
+    max-height: 220px; /* Приклад висоти області відображення (менше, ніж висота слайда) */
+    position: relative;
+    overflow: hidden; /* Обрізаємо вміст, що виходить за межі */
+    transition: max-height 0.5s ease-in-out; /* ПЛАВНИЙ ПЕРЕХІД */
 }
 
 .review-slide__image {
     width: 100%;
-    height: 100%;
+    /* ⭐️ КЛЮЧОВЕ ЗМІНА: Зображення буде займати природну висоту */
+    height: auto; 
     display: block;
     object-fit: contain;
+}
+
+/* ⭐️ ВІДКРИТИЙ СТАН: Коли контейнер повністю розгорнутий */
+.review-slide__image-container.expanded {
+    max-height: 2000px; /* Достатньо велике значення для відображення повного вмісту */
 }
 
 
@@ -1234,23 +1313,24 @@ h6 {
     display: flex;
     justify-content: center; 
     width: 100%;
-    margin-top: 10px;
+    margin-top: 2px;
+    gap: 20px;
 }
 
 .reviews-block__navigation .navigation-buttons__prev,
 .reviews-block__navigation .navigation-buttons__next {
-    /* МІНІМАЛІСТИЧНИЙ СТИЛЬ */
-    flex: 0; 
-    width: 45px; 
-    aspect-ratio: 1 / 1;
-    background-color: transparent; 
-    /* ЗМІНА: Темна коричнева рамка */
-    border: 2px solid #47383B; 
-    border-radius: 50%; 
-    
-    transition: all 0.2s ease;
-    box-shadow: none;
-    margin: 0 10px; 
+    flex: 1;
+    height: 55px;
+    background-color: #fffbf5;
+    border: 2px solid #47383B;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 12px rgba(255, 185, 0, 0.2);
+    outline: none;
 }
 
 .reviews-block__navigation .navigation-buttons__prev:hover,
@@ -1274,6 +1354,58 @@ h6 {
 .reviews-block__navigation .navigation-buttons__next:hover svg {
     /* ЗМІНА: Яскравий жовтий при наведенні */
     stroke: #FFB900; 
+}
+
+.review-slide__fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Висота зони плавного обрізання */
+    /* ⭐️ ГРАДІЄНТ: Від прозорого до кольору фону слайда (білого) */
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none; /* Дозволяє клікам проходити наскрізь */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* При розгортанні ховаємо градієнт */
+.review-slide__image-container.expanded .review-slide__fade-overlay {
+    opacity: 0;
+}
+
+.review-slide__action-area {
+    /* Приклеюємо область дій до низу слайда */
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    /* ⭐️ Рамка, щоб візуально відокремити від нижнього контенту */
+    border-top: 1px solid #f0f0f0; 
+}
+
+.review-slide__expand-button {
+    /* Стиль кнопки, схожий на ваші акцентні кнопки */
+    padding: 8px 15px;
+    background-color: #FFB900; 
+    color: #47383B; 
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.review-slide__expand-button:hover {
+    background-color: #FF9900; 
+}
+
+/* Стан кнопки, коли слайд розгорнутий */
+.review-slide__action-area.hidden .review-slide__expand-button {
+    display: none;
 }
 
 /* =============================================================================== */
@@ -1493,12 +1625,18 @@ h6 {
 
 .catalog-section__title {
     font-family: 'Rubik', sans-serif;
-    font-size: 2.2em;
+    font-size: 32px;
     font-weight: 800;
     /* ЗМІНА: Темний коричневий текст */
     color: #47383B; 
     text-transform: uppercase;
     text-align: center;
+    line-height: 1;
+}
+
+.catalog-section__title .highlight-text {
+    /* ЗМІНА: Яскравий жовтий акцент */
+    color: #FFB900; 
 }
 
 /* --- СТИЛІ ОДНІЄЇ КАРТКИ ТОВАРУ (.catalog-slider) --- */
@@ -1576,9 +1714,10 @@ h6 {
     width: 35px;
     height: 35px;
     /* ЗМІНА: Яскравий жовтий фон для видимості */
-    background-color: #FFB900; 
+    background: #FFF7EA url(arrow.svg) no-repeat center center; 
+    background-size: contain;
     /* ЗМІНА: Темний коричневий кордон */
-    border: 2px solid #47383B; 
+    border: 2px solid #FFBE13; 
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -1589,13 +1728,17 @@ h6 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.catalog-slider__arrow--prev{
+    transform: translateY(-50%) rotate(180deg);
+}
+
 .catalog-slider__arrow--prev { left: 10px; }
 .catalog-slider__arrow--next { right: 10px; }
 
 .catalog-slider__arrow:hover {
     /* ЗМІНА: Помаранчевий при hover */
-    background-color: #FF9900; 
-    border-color: #47383B;
+    /* background-color: #FF9900;  */
+    /* border-color: #47383B; */
 }
 
 .catalog-slider__arrow svg {
@@ -1621,8 +1764,8 @@ h6 {
 
 .catalog-slider__name {
     font-family: 'Rubik', sans-serif;
-    font-size: 1.8em;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 900;
     /* ЗМІНА: Темний коричневий текст */
     color: #47383B; 
     margin-top: 5px; 
@@ -1630,7 +1773,7 @@ h6 {
     text-transform: uppercase;
     padding: 0 10px; 
     overflow-wrap: break-word; 
-    line-height: 1.2; 
+    line-height: 1; 
 }
 
 .catalog-slider__price-options {
@@ -1647,6 +1790,7 @@ h6 {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    flex: 1 0 50%;
 }
 
 /* Стиль цінових лейблів (на 2 подушки, на 3 подушки) */
@@ -1657,8 +1801,8 @@ h6 {
     color: #47383B; 
     padding: 3px 10px;
     border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 900;
     margin-bottom: 5px;
     /* ЗМІНА: Тінь під колір градієнта */
     box-shadow: 0 2px 4px rgba(255, 185, 0, 0.5); 
@@ -1679,23 +1823,70 @@ h6 {
 .catalog-slider__button {
     width: 90%;
     padding: 15px 0;
-    /* ЗМІНА: Створюємо яскравий помаранчевий градієнт кнопки CTA */
     background: linear-gradient(to bottom, #FFB900, #FF9900);
-    /* ЗМІНА: Білий текст для контрасту на яскравому фоні */
-    color: #FFF; 
-    /* ЗМІНА: Кордон, адаптований до нового акценту */
+    color: #47383B; 
     border: 2px solid #FFC94A; 
     border-radius: 35px;
     font-family: 'Rubik', sans-serif;
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 900;
     cursor: pointer;
-    /* ЗМІНА: Тінь під колір акценту */
     box-shadow: 0 5px 15px rgba(255, 185, 0, 0.5);
     transition: all 0.3s ease;
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
+    
+    /* СТИЛІ ДЛЯ АНІМАЦІЇ */
+    position: relative; /* Обов'язково для псевдоелемента */
+    z-index: 1; /* Для розміщення над фоном, але під блиском */
+}
+
+/* ДОДАНО: Ефект блиску для кнопки каталогу */
+.catalog-slider__button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Починаємо за межами кнопки */
+    width: 50%; /* Ширина "блиску" */
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); /* Напівпрозорий білий */
+    transform: skewX(-20deg); /* Нахиляємо для ефекту ковзання */
+    z-index: 2;
+    /* Запускаємо анімацію блиску */
+    animation: shine 4s infinite;
+    animation-delay: 0.5s; 
+}
+
+.catalog-slider__button:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 7px 20px rgba(255, 185, 0, 0.2);
+}
+
+
+/* --------------------------------------------------- */
+/* КЛЮЧОВІ КАДРИ АНІМАЦІЇ (ВИКОРИСТОВУЮТЬСЯ ОБИДВОМА БЛИСКАМИ) */
+/* --------------------------------------------------- */
+@keyframes ripple-animation {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 250%; 
+        height: 250%;
+        opacity: 0; 
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 150%; 
+    }
 }
 
 .catalog-slider__button:hover {
@@ -1756,7 +1947,7 @@ h6 {
 
 .how-to-order__title {
     font-family: 'Rubik', sans-serif;
-    font-size: 2.5em;
+    font-size: 32px;
     font-weight: 800;
     color: #47383B; /* Dark Contrast */
     text-transform: uppercase;
@@ -1773,7 +1964,7 @@ h6 {
 
 .order-step {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
     /* Фон кроку: Base Color + трішки світліший */
     background-color: #FFF; 
@@ -1786,17 +1977,19 @@ h6 {
 
 .order-step__icon {
     flex-shrink: 0; 
-    width: 45px;
-    height: 45px;
+    width: 90px;
+    aspect-ratio: 1 / 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .order-step__icon img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .order-step__content {
@@ -1805,11 +1998,12 @@ h6 {
 
 .order-step__title {
     font-family: 'Rubik', sans-serif;
-    font-size: 1.4em;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 900;
     color: #47383B; /* Dark Contrast */
     margin-bottom: 5px;
     text-transform: uppercase;
+    line-height: 1.2;
 }
 
 .order-step__description {
@@ -1825,12 +2019,12 @@ h6 {
     padding: 15px 0;
     /* АКЦЕНТ: Яскравий Жовто-Помаранчевий градієнт */
     background: linear-gradient(to right, #FFB900, #FF9900); 
-    color: #ffffff; /* Темний текст на яскравому фоні */
+    color: #47383B; /* Темний текст на яскравому фоні */
     border: 2px solid #FF9900;
     border-radius: 35px;
     font-family: 'Rubik', sans-serif;
-    font-size: 1.2em;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 900;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(255, 153, 0, 0.6); /* Тінь під акцент */
     transition: all 0.3s ease;
@@ -1838,6 +2032,7 @@ h6 {
     overflow: hidden; 
     text-overflow: ellipsis; 
     margin-top: 20px; 
+    position: relative;
 }
 
 .how-to-order__button:hover {
@@ -1845,4 +2040,567 @@ h6 {
     background: linear-gradient(to right, #FF9900, #E68A00);
     transform: translateY(-2px);
     border-color: #E68A00;
+}
+
+/* ======================================================================================= */
+/* ======================================================================================= */   
+/* ======================================================================================= */
+
+/* --- СТИЛІ СЕКЦІЇ ФОРМИ (LOCKER) --- */
+
+.form-locker-section {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    /* ЗМІНА: Темний фон, пов'язаний з блоком "ДОГЛЯД" */
+    background-color: #575163; 
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    /* ЗМІНА: Світлий кремово-білий текст */
+    color: #FFF8EB; 
+}
+
+.form-locker__container {
+    width: 375px; 
+    box-sizing: border-box;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+/* ЗАГОЛОВОК */
+.form-locker__header {
+    margin-bottom: 20px;
+}
+
+.form-locker__header h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    /* ЗМІНА: Світлий кремово-білий */
+    color: #FFF8EB; 
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.form-locker__header p {
+    font-size: 0.9em;
+    /* ЗМІНА: Нейтральний сіро-бежевий */
+    color: #D1C6B3; 
+}
+
+/* --- ТАЙМЕР --- */
+
+.form-locker__timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.timer__unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    /* ЗМІНА: Яскравий жовтий акцент */
+    background-color: #FFB900; 
+    border-radius: 10px;
+    /* ЗМІНА: Темний текст для контрасту на жовтому */
+    color: #47383B; 
+    min-width: 60px;
+}
+
+.timer__value {
+    font-family: 'Rubik', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.timer__label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+    line-height: 1;
+}
+
+.timer__separator {
+    font-size: 2em;
+    /* ЗМІНА: Колір сепаратора як акцент */
+    color: #FFB900;
+    font-weight: 900;
+}
+
+
+/* --- ФОРМА ТА ПОЛЯ ВВЕДЕННЯ --- */
+
+.form-locker__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+}
+
+.form-label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    /* ЗМІНА: Фон секції */
+    background-color: #575163; 
+    /* ЗМІНА: Колір тексту */
+    color: #D1C6B3;
+    padding: 3px 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #D1C6B3;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 50;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 22px 20px 15px;
+    /* ЗМІНА: М'яка рамка */
+    border: 1px solid #D1C6B3; 
+    border-radius: 30px;
+    /* ЗМІНА: Чистий білий фон */
+    background-color: #fff;
+    /* ЗМІНА: Темний текст */
+    color: #47383B;
+    font-size: 1em;
+    box-sizing: border-box;
+    appearance: none; 
+    -webkit-appearance: none;
+}
+
+/* Стилі для select (випадаючі списки) */
+.form-select {
+    /* Адаптуємо колір стрілки до темного тексту #47383B */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2347383B%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px; 
+}
+
+/* Стиль валідації */
+.form-input.invalid,
+.form-select.invalid {
+    /* ЗМІНА: Червона рамка при помилці */
+    border-color: #E74C3C; 
+}
+
+/* Кнопка */
+.form-locker__button {
+    width: 100%;
+    padding: 15px 0;
+    /* ЗМІНА: Жовто-помаранчевий градієнт CTA */
+    background: linear-gradient(to right, #FFB900, #FF9900); 
+    /* ЗМІНА: Білий текст для контрасту на яскравому фоні */
+    color: #4A4A4A; 
+    /* ЗМІНА: Кордон як акцент */
+    border: 2px solid #FF9900;
+    border-radius: 35px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    /* Тінь під колір акценту */
+    box-shadow: 0 5px 15px rgba(255, 185, 0, 0.6);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.form-locker__button:hover {
+    /* ЗМІНА: Зміна градієнта при hover */
+    background: linear-gradient(to right, #FF9900, #FFB900);
+    transform: translateY(-2px);
+    /* ЗМІНА: Кордон темний для виділення */
+    border-color: #47383B;
+}
+
+/* ------------------ */
+
+/* ======================================================================================= */
+/* --- СТИЛІ ДЛЯ КАСМТОМНИХ ВИПАДАЮЧИХ СПИСКІВ (CUSTOM SELECT) --- */
+/* ======================================================================================= */
+/* ======================================================================================= */
+/* --- СТИЛІ ДЛЯ КАСМТОМНИХ ВИПАДАЮЧИХ СПИСКІВ (АККОРДЕОН - ВБУДОВАНИЙ) --- */
+/* ======================================================================================= */
+
+/* Приховуємо нативний select */
+.form-select {
+    display: none !important;
+}
+
+/* 1. КОНТЕЙНЕР ОБГОРТКА */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    z-index: 10; /* Базовий Z-index для акордеона */
+    transition: all 0.2s ease;
+}
+
+/* 2. ВІДОБРАЖЕННЯ ВИБРАНОГО ЕЛЕМЕНТА (ГОЛОВНЕ ПОЛЕ) */
+.custom-select-selected {
+    border: 1px solid #D1C6B3; 
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    padding: 22px 20px 15px;
+    font-size: 1em;
+    color: #4A4A4A; 
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-radius 0.3s ease, border-color 0.2s ease;
+}
+
+/* Створення ОДНІЄЇ кастомної стрілки */
+.custom-select-selected::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #4A4A4A;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+/* 3. СТИЛІ ВІДКРИТОГО ПОЛЯ (Active State) */
+.custom-select-wrapper.active {
+    z-index: 11; 
+}
+
+.custom-select-wrapper.active .custom-select-selected {
+    border-color: #FF4B3A; 
+    box-shadow: 0 0 0 2px rgba(255, 75, 58, 0.3);
+    /* Злиття з випадаючим списком */
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid #FF4B3A; 
+}
+
+/* Поворот стрілки, коли список відкритий */
+.custom-select-wrapper.active .custom-select-selected::after {
+    transform: rotate(180deg);
+}
+
+/* 4. КОНТЕЙНЕР ВИПАДАЮЧОГО СПИСКУ (Dropdown Menu) */
+.custom-select-options {
+    /* КЛЮЧОВЕ ЗМІНА: ВСТАВЛЯЄМО В ПОТІК */
+    position: relative; 
+    
+    width: 100%;
+    
+    background-color: #FFFFFF; 
+    border-top: none; 
+    
+    max-height: 0; /* ЗАКРИТИЙ СТАН: Висота 0 для плавного відкриття */
+    overflow-y: hidden;
+    list-style: none;
+    padding: 0;
+    
+    /* Компенсуємо рамку та додаємо відступ для розсування елементів */
+    margin-top: -1px; 
+    margin-bottom: 20px; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.4s ease-in-out; 
+    
+    /* Фінальне заокруглення знизу */
+    border-bottom-left-radius: 30px;
+    /* border-bottom-right-radius: 30px; */
+}
+
+/* 5. ВІДКРИТИЙ СТАН ВИПАДАЮЧОГО СПИСКУ */
+.custom-select-options.active {
+    max-height: 300px; /* ВІДКРИТИЙ СТАН */
+    overflow-y: auto; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+}
+
+/* 6. Окремий елемент списку */
+.custom-select-options li { 
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #4A4A4A; 
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.custom-select-options li:hover {
+    background-color: #FF4B3A;
+    color: #FFFFFF;
+}
+
+/* Стиль для вибраного елемента */
+.custom-select-options li.selected {
+    background-color: #4A4A4A;
+    color: #FFFFFF; 
+    font-weight: 600;
+}
+
+/* 7. ВАЛІДАЦІЯ ТА БЛОКУВАННЯ */
+.custom-select-wrapper.invalid .custom-select-selected {
+    border-color: #E74C3C;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3);
+}
+
+.custom-select-wrapper.disabled {
+    opacity: 0.6; 
+    cursor: not-allowed;
+}
+
+.custom-select-wrapper.disabled .custom-select-selected {
+    cursor: not-allowed;
+}
+
+/* ДОДАТКОВЕ ВИПРАВЛЕННЯ: Скидаємо margin-bottom для form-group, якщо всередині нього є custom-select-wrapper */
+.form-group .custom-select-wrapper {
+    margin-bottom: 0;
+}
+
+/* ======================================================================================= */
+/* ======================================================= */
+/* СТИЛІ ДЛЯ МОДАЛЬНОГО ВІКНА ВІДГУКІВ (POP-UP) */
+/* ======================================================= */
+
+.review-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(71, 56, 59, 0.8); /* Темний, напівпрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Високий Z-index, щоб перекрити все */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.review-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.review-modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.review-modal-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.review-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #FF4B3A; /* Акцентний колір */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10000;
+    transition: background-color 0.2s;
+}
+
+.review-modal-close:hover {
+    background-color: #E74C3C;
+}
+
+/* ⭐️ ВИПРАВЛЕННЯ: Тепер можна прибрати градієнт-обрізання (Fade-out) */
+.review-slide__image-container {
+    max-height: 220px; 
+    position: relative;
+    overflow: hidden; 
+}
+.review-slide__fade-overlay {
+    /* Робимо його більш прозорим, але залишаємо для візуального ефекту, що контент продовжується */
+    opacity: 0.8;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; 
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none; 
+}
+
+/* ⭐️ Стилі для кнопки Pop-up */
+.review-slide__open-modal-button {
+    padding: 8px 15px;
+    background-color: #FFB900; 
+    color: #47383B; 
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.review-slide__open-modal-button:hover {
+    background-color: #FF9900; 
+}
+
+.review-slide__image-container {
+    /* ⭐️ ФІКСОВАНА МАКСИМАЛЬНА ВИСОТА для обрізання */
+    max-height: 220px; 
+    position: relative;
+    overflow: hidden; 
+    /* Можна прибрати transition, оскільки ми більше не розгортаємо */
+}
+
+.review-slide__action-area {
+    /* Приклеюємо область дій до низу слайда */
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0; 
+    /* ⭐️ Зробимо його завжди видимим, але контент всередині приховаємо JS */
+}
+
+/* ========================================================================================= */
+/* ========================================================================================= */
+/* ========================================================================================= */
+
+.popup-notification {
+    /* Позиціонування та розміри */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 15px 25px;
+    border-radius: 12px;
+
+    /* Дизайн */
+    background: rgba(0, 0, 0, 0.85); /* Темний фон залишаємо, як на оригінальному зображенні */
+    color: #ffffff; /* Білий текст */
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+
+    /* Обмеження ширини для екранів > 500px */
+    max-width: 430px; 
+    
+    /* Додаємо тонку акцентну рамку для інтеграції з брендом */
+    border: 2px solid transparent; 
+    
+    /* Вміст */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    /* Початковий стан (прихований) */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out, border-color 0.3s;
+}
+
+.popup-notification.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); 
+    /* Акцентна рамка при появі */
+    border-color: #FFB900; 
+}
+
+.popup-icon {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+    /* Змінюємо колір іконки на акцентний, щоб вона виділялася */
+    color: #FF4B3A; 
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 0;
+}
+
+#popupMessage {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+    white-space: nowrap; /* Зберігаємо оригінальне nowrap */
+    overflow: hidden; /* Обрізаємо, якщо занадто довге */
+    text-overflow: ellipsis; /* Додаємо три крапки при обрізанні */
+}
+
+.popup-time {
+    margin: 3px 0 0 0;
+    font-size: 13px;
+    /* Використовуємо Додатковий сірий (#4A4A4A) для кращої інтеграції, але освітлюємо його для темного фону */
+    color: #ADADAD; /* Використовуємо Колір старої ціни, бо він добре виглядає на чорному фоні */
+    text-align: right;
+}
+
+/* --- Адаптивність: Екрани менші або рівні 500px --- */
+@media (max-width: 500px) {
+    .popup-notification {
+        /* Обмеження ширини для екранів <= 500px */
+        max-width: 320px; 
+        
+        top: 15px; /* Трохи менший відступ зверху */
+        padding: 10px 15px; /* Менші внутрішні відступи */
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .popup-icon {
+        font-size: 24px;
+    }
+
+    #popupMessage {
+        font-size: 14px;
+        white-space: normal; /* Дозволяємо перенесення рядка на мобільних, щоб вміст не виходив за межі */
+    }
+
+    .popup-time {
+        font-size: 11px;
+    }
 }
