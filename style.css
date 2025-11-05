@@ -1772,7 +1772,7 @@ h6 {
     width: 35px;
     height: 35px;
     /* ЗМІНА: Яскравий жовтий фон для видимості */
-    background: #FFF7EA url(arrow.svg) no-repeat center center; 
+    background: #FFF7EA url(icons/arrow.svg) no-repeat center center; 
     background-size: contain;
     /* ЗМІНА: Темний коричневий кордон */
     border: 2px solid #FFBE13; 
