@@ -923,6 +923,7 @@ h6 {
 
 .details__container ul li{
     list-style: disc;
+    margin-inline-start: 15px;
 }
 .details__container ul li::marker{
     font-size: 12px;
