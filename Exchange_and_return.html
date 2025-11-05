@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обмін та Повернення Товарів - mizi-shop</title>
+    <style>
+        /* === ВИЗНАЧЕННЯ ПАЛІТРИ === */
+        :root {
+            --color-primary-bg: #EADDC4;    /* Світлий Пісочний Фон */
+            --color-secondary-bg: #f0f0f0;  /* Світло-сірий фон для блоків */
+            --color-accent: #382d2f;        /* Темний Акцент */
+            --color-text-dark: #47383B;     /* Темний Коричневий Текст */
+            --color-border: #cdc0ac;        /* Сіро-бежевий роздільник */
+        }
+
+        /* === ГЛОБАЛЬНІ СТИЛІ === */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--color-primary-bg);
+            color: var(--color-text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff; 
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--color-text-dark);
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--color-accent); 
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--color-accent);
+            font-size: 1.4em;
+            margin-top: 30px;
+            border-left: 5px solid var(--color-accent);
+            padding-left: 10px;
+            margin-bottom: 15px; 
+        }
+        
+        h3 {
+            color: var(--color-text-dark);
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Стиль для інструкції (як повернути) */
+        .instruction-step {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            border-left: 3px solid var(--color-border);
+            background-color: var(--color-secondary-bg);
+            border-radius: 4px;
+        }
+        .instruction-step strong {
+            color: var(--color-accent);
+        }
+        
+        .guarantee-block {
+            padding: 20px;
+            background-color: #fff3e0; /* Легкий контрастний колір */
+            border-radius: 8px;
+            border: 1px dashed var(--color-accent);
+            margin-top: 30px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--color-border);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Обмін та Повернення Товарів</h1>
+
+        <h2>1. Термін звернення</h2>
+        <ul>
+            <li>Ви маєте право повернути або обміняти товар протягом **14 днів** з моменту отримання замовлення.</li>
+            <li>Для цього обов'язково збережіть **чек** або інший документ, що підтверджує покупку.</li>
+        </ul>
+
+        <h2>2. Стан товару</h2>
+        <p>Для успішного повернення або обміну товар повинен відповідати таким вимогам:</p>
+        <ul>
+            <li>Товар повинен бути в **оригінальній неушкодженій упаковці**, без будь-яких слідів використання.</li>
+            <li>Необхідно зберегти **товарний вигляд** (відсутність подряпин, потертостей).</li>
+            <li>У комплекті повинні бути **всі аксесуари, інструкції** та інші елементи, які входили до складу замовлення.</li>
+        </ul>
+
+        <h2>3. Товари, які не підлягають поверненню</h2>
+        <p>Згідно з Законом України "Про захист прав споживачів" (перелік товарів належної якості, що не підлягають обміну/поверненню), до таких відносяться:</p>
+        <ul>
+            <li>**Гігієнічні товари** (наприклад, навушники, бритви, зубні щітки, білизна).</li>
+            <li>Продукти, які **швидко псуються**.</li>
+            <li>**Програмне забезпечення, книги, журнали**, якщо упаковка була розкрита або порушена.</li>
+        </ul>
+        
+        <hr style="border: 1px solid var(--color-border); margin: 30px 0;">
+
+        <h2>Як повернути або обміняти товар (Покрокова інструкція)</h2>
+
+        <div class="instruction-step">
+            <strong>1. Зверніться до нашої служби підтримки</strong>
+            <p>Зателефонуйте за номером **[вкажіть номер телефону]** або напишіть на електронну пошту **[вкажіть email]**. У зверненні обов'язково вкажіть **номер замовлення** та чітку причину повернення/обміну.</p>
+        </div>
+
+        <div class="instruction-step">
+            <strong>2. Упакуйте товар</strong>
+            <p>Акуратно упакуйте товар разом з усіма комплектуючими. Обов'язково додайте **копію чека** до посилки.</p>
+        </div>
+
+        <div class="instruction-step">
+            <strong>3. Відправка товару</strong>
+            <p>Ви можете відправити товар за нашою адресою через службу доставки **[назва служби]** або домовитися про обмін у пункті самовивозу (за наявності).</p>
+        </div>
+
+        <h3>Відшкодування коштів</h3>
+        <p>Повернення коштів здійснюється протягом **7 робочих днів** з моменту отримання товару нашим складом та перевірки його стану.</p>
+        
+        <div class="guarantee-block">
+            <h3>Гарантійні випадки</h3>
+            <p>Якщо товар має **виробничий дефект** (випадок неналежної якості), ми гарантуємо **безкоштовний ремонт, заміну або повернення коштів**. Для цього вам потрібно негайно зв’язатися з менеджером за телефоном, вказаним на сайті.</p>
+        </div>
+
+        <p style="margin-top: 40px; text-align: center;">Ми цінуємо вашу довіру та робимо все можливе, щоб покупки в нашому магазині приносили тільки позитивні емоції.</p>
+
+        <div class="footer" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p>&copy; 2025 Усі права захищені.</p>
+        </div>
+    </div>
+
+</body>
+</html>

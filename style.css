@@ -185,7 +185,6 @@ h6 {
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Тінь залишаємо темною для контрасту */
     text-align: center;
-    transform: translateY(20px);
     transition: transform 0.3s ease;
     font-family: 'Manrope', sans-serif;
 }
@@ -380,11 +379,15 @@ h6 {
 
 .header-section__title{
     font-family: "Rubik", sans-serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 900;
     /* ЗМІНА: Темний коричневий */
     color: #47383B;
     line-height: 1;
+}
+
+.header-section__title .highlight-text {
+    color: #FFB900;
 }
 .header-section__subtitle {
     font-size: 16px;
@@ -460,7 +463,7 @@ h6 {
 .intro {
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
+    padding: 45px 0;
     /* ЗМІНА: Основний фон, якщо він тут потрібен */
     background-color: #EADDC4; 
     /* Візерунок адаптований */
@@ -486,7 +489,7 @@ h6 {
     width: 100%; 
     display: block; 
     overflow: hidden;
-    aspect-ratio: 345 / 456;
+    aspect-ratio: 345 / 345;
     border-radius: 20px; 
     /* ЗМІНА: Фон зображення на кремово-білий */
     background-color: #FFF8EB; 
@@ -498,55 +501,70 @@ h6 {
     height: 100%;
 }
 
-/* --- БЛОК ЦІН --- */
+/* === ЗМІНИ В СТИЛЯХ ЦІНИ (НА ОСНОВІ ЗОБРАЖЕННЯ) === */
+
+/* --- БЛОК ЦІН (Контейнер) --- */
 .content-intro__block-price {
+    /* Зберігаємо позиціонування */
     position: absolute; 
-    top: -5%; 
-    right: -5%; 
+    top: -7%; 
+    right: 50%;
+    transform: translate(50%, 0); 
     display: flex;
     flex-direction: column;
     align-items: center; 
     z-index: 10; 
 }
 
+/* === НОВА ЦІНА: Яскрава БЛАКИТНА ХМАРКА === */
 .content-intro__new-price {
-    /* ЗМІНА: Яскравий жовтий фон */
-    background-color: #FFB900;
-    /* ЗМІНА: Темний коричневий текст */
-    color: #47383B;
-    padding: 8px 20px;
-    border-radius: 25px; 
-    font-size: 28px; 
+    /* Фон та форма */
+    background-color: #FFB238; /* Яскравий БЛАКИТНИЙ ФОН */
+    
+    /* ЗБЕРІГАЄМО ФОРМУ */
+    padding: 15px 30px; 
+    border-radius: 50px 20px 50px 20px; 
+    font-size: 2em; 
     font-weight: 900;
-    line-height: 1; 
+    line-height: 1.1; 
     white-space: nowrap; 
-    /* Тінь адаптована під жовтий */
-    box-shadow: 0 4px 8px rgba(255, 185, 0, 0.4); 
+    
+    /* ТІНЬ / ЕФЕКТИ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     margin-bottom: -10px; 
     position: relative; 
-    z-index: 2; 
+    z-index: 2;
+    
+    /* ОСНОВНИЙ КОЛІР ТЕКСТУ: БІЛИЙ (FILL) */
+    color: #FFFFFF;
 }
 
+
+/* === СТАРА ЦІНА: ТЕМНИЙ ТЕКСТ, СВІТЛА ХМАРКА, ПЕРЕКРЕСЛЕННЯ === */
 .content-intro__old-price {
-    /* ЗМІНА: Нейтральний сіро-бежевий фон */
-    background-color: #D1C6B3;
-    /* ЗМІНА: Темний коричневий текст */
-    color: #47383B;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 16px;
-    text-decoration: line-through; 
-    font-weight: 400;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+    /* ФОН І ФОРМА */
+    background-color: rgba(255, 255, 255, 0.95); /* Майже біла хмарка */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); 
+    
+    /* ПОЗИЦІЯ */
     position: relative;
     bottom: -10%; 
     z-index: 3; 
+    
+    /* ТЕКСТ */
+    color: #47383B; /* Темний коричневий */
+    font-weight: 900;
+    font-size: 1.5em; 
+    text-decoration: line-through; /* ПЕРЕКРЕСЛЕННЯ */
+    
+    padding: 5px 20px; 
+    border-radius: 40px 15px 40px 15px; /* Форма хмарки */
 }
 
 /* --- БЛОК ДІЙ (КІЛЬКІСТЬ ТА КНОПКА) --- */
 .content-intro__actions {
     position: absolute; 
-    bottom: -8%; 
+    bottom: -12%; 
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px); 
@@ -842,7 +860,7 @@ h6 {
 .product-thumbnails {
     display: flex;
     justify-content: center; 
-    gap: 10px; 
+    gap: 4px; 
     flex-wrap: wrap; 
     width: 100%; 
     max-width: 335px; 
@@ -850,12 +868,13 @@ h6 {
 
 .product-thumbnails__item {
     width: 50px; 
-    height: 60px; 
+    aspect-ratio: 1 / 1; 
     border-radius: 12px;
     object-fit: cover; 
-    border: 2px solid transparent; 
+    border: 2px solid #4A352B; 
     transition: border-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
+    background-color: #FFF8EB;
 }
 
 .product-thumbnails__item:hover {
@@ -891,6 +910,17 @@ h6 {
     padding: 0 20px; 
 }
 
+.details__container ul{
+    margin-left: 25px;
+}
+
+.details__container ul li{
+    list-style: disc;
+}
+.details__container ul li::marker{
+    font-size: 12px;
+}
+
 /* Заголовок */
 .details__header {
     text-align: center;
@@ -919,6 +949,23 @@ h6 {
     padding: 0; /* Прибираємо зайвий внутрішній відступ, якщо є container padding */
     width: 100%;
     box-sizing: border-box;
+}
+
+.recommendations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.details__subtitle{
+    font-size: 24px;
+    /* ЗМІНА: Темний коричневий */
+    line-height: 1;
+    color: #47383B;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Rubik', sans-serif;
 }
 
 /* --- БЛОК ХАРАКТЕРИСТИК ТА ДОГЛЯДУ (info-block / care-block) --- */
@@ -1625,7 +1672,7 @@ h6 {
 
 .catalog-section__title {
     font-family: 'Rubik', sans-serif;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 800;
     /* ЗМІНА: Темний коричневий текст */
     color: #47383B; 
@@ -2603,4 +2650,15 @@ h6 {
     .popup-time {
         font-size: 11px;
     }
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+    background-color: rgb(227, 220, 208);
+    /* Візерунок адаптований */
+    background-image: radial-gradient(#d1c6b3 1px, transparent 1px);
 }

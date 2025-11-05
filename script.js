@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ newStatus })
             });
             
-            // Якщо сервер повернув 500, result.json() може кинути помилку синтаксису, тому обробляємо акуратно.
             const result = response.ok ? await response.json() : { success: false };
 
             if (response.ok && result.success) {
@@ -188,19 +187,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     statusSelect += '</select>';
 
                     html += `<tr data-order-id="${order.id}">
-                                 <td>${order.id}</td>
-                                 <td>${order.name}</td>
-                                 <td>${order.phone}</td>
-                                 <td>${order.city}</td>
-                                 <td>${order.warehouse}</td>
-                                 <td>${order.chair}</td>
-                                 <td>${order.size}</td>
-                                 <td>${date}</td>
-                                 <td>${statusSelect}</td>
-                                 <td>
-                                     <button class="delete-btn" data-order-id="${order.id}" style="background-color: #F44336; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">❌ Видалити</button>
-                                 </td>
-                             </tr>`;
+                                     <td>${order.id}</td>
+                                     <td>${order.name}</td>
+                                     <td>${order.phone}</td>
+                                     <td>${order.city}</td>
+                                     <td>${order.warehouse}</td>
+                                     <td>${order.chair}</td>
+                                     <td>${order.size}</td>
+                                     <td>${date}</td>
+                                     <td>${statusSelect}</td>
+                                     <td>
+                                         <button class="delete-btn" data-order-id="${order.id}" style="background-color: #F44336; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">❌ Видалити</button>
+                                     </td>
+                                 </tr>`;
                 });
 
                 html += '</table>';
@@ -264,20 +263,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // (Залишено, як у вашому коді)
     // =======================================================
 
-    // ... (весь код функції showPopup, hidePopup, handleScroll) ...
-    const popup = document.getElementById('randomOrderPopup');
-    const messageElement = document.getElementById('popupMessage');
-    let isPopupVisible = false;
-
     // --- Випадкові дані ---
     const names = ['Софія', 'Олександр', 'Марія', 'Дмитро', 'Катерина', 'Андрій'];
     const cities = ['Ужгорода', 'Львова', 'Києва', 'Одеси', 'Харкова', 'Дніпра'];
     const products = [
-        { name: 'подушка синьо-сіра', gender: 'f' },
-        { name: 'чашка з логотипом', gender: 'n' },
-        { name: 'світшот чорний', gender: 'm' },
-        { name: 'набір свічок', gender: 'm' },
-        { name: 'футболка біла', gender: 'f' }
+        { name: 'подушка синя', gender: 'f' },
+        { name: 'подушка рожева', gender: 'n' },
+        { name: 'подушка чорна', gender: 'm' },
+        { name: 'подушка коричнева', gender: 'm' },
+        { name: 'подушка біла', gender: 'f' }
     ];
 
     function generateRandomMessage() {
@@ -301,27 +295,31 @@ document.addEventListener('DOMContentLoaded', () => {
         popup.classList.add('visible');
         isPopupVisible = true;
 
-        const hideDelay = 2500 + Math.random() * 3000;
+        const hideDelay = 6000 + Math.random() * 3000;
         setTimeout(hidePopup, hideDelay);
     }
 
     function hidePopup() {
         popup.classList.remove('visible');
         isPopupVisible = false;
-    }
-
-    function handleScroll() {
-        if (isPopupVisible) return;
-
-        const appearanceChance = 0.05; 
         
-        if (Math.random() < appearanceChance) {
-            const randomDelay = 500 + Math.random() * 1500;
-            setTimeout(showPopup, randomDelay);
-        }
+        // --- ВИПРАВЛЕННЯ: ЗАПЛАНОВУЄМО НАСТУПНИЙ ПОКАЗ ---
+        const nextShowDelay = 18000 + Math.random() * 10000; // 18с до 28с
+        setTimeout(showPopup, nextShowDelay);
     }
 
-    window.addEventListener('scroll', handleScroll);
+    // --- ЗМІНА ЛОГІКИ: ВИДАЛЕННЯ ОБРОБНИКА SCROLL І ЗАПУСК НА ПЕРШОМУ LOAD ---
+    const popup = document.getElementById('randomOrderPopup');
+    const messageElement = document.getElementById('popupMessage');
+    let isPopupVisible = false;
+    
+    // Видаляємо handleScroll, оскільки він більше не потрібен
+    // window.removeEventListener('scroll', handleScroll); // (У цьому контексті неможливо, але логіка відсутня)
+    
+    // Запускаємо перше сповіщення через 5 секунд, якщо елементи існують
+    if (popup && messageElement) {
+        setTimeout(showPopup, 5000); 
+    }
 
 
     function closeModal() {
@@ -357,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =======================================================
-    // 2. УНІВЕРСАЛЬНИЙ СЛАЙДЕР (FADE/SCROLL)
+    // 2. УНІВЕРСАЛЬНИЙ СЛАЙДЕР 
     // (Залишено, як у вашому коді)
     // =======================================================
 
@@ -542,7 +540,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // =======================================================
     // 3. ФОРМА ЗАМОВЛЕННЯ, ТАЙМЕР ТА API НОВОЇ ПОШТИ
-    // (Залишено, як у вашому коді)
     // =======================================================
 
     function updateCustomSelectOptions(selectElement) {
@@ -680,8 +677,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (formElementsExist) {
         
-        // --- ТАЙМЕР ЗВОРОТНОГО ВІДЛІКУ ---
-        const deadline = new Date('November 5, 2025 10:00:00').getTime();
+        // --- ВИПРАВЛЕННЯ: ФУНКЦІЯ ДЛЯ ВСТАНОВЛЕННЯ ЩОДЕННОГО ДЕДЛАЙНУ ---
+        function calculateDailyDeadline() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(now.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0); // Встановлюємо на 00:00:00 завтра
+            
+            // Дедлайн: 23:59:59 сьогодні
+            return tomorrow.getTime() - 1000;
+        }
+        
+        const deadline = calculateDailyDeadline();
+        let timerInterval;
 
         function updateTimer() {
             const now = new Date().getTime();
@@ -709,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        const timerInterval = setInterval(updateTimer, 1000);
+        timerInterval = setInterval(updateTimer, 1000); // ВИПРАВЛЕННЯ: Збережено у змінну
         updateTimer(); 
 
 
@@ -858,12 +866,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         // 2. Очищуємо відділення і оновлюємо візуальний кастомний селект
                         warehouseSelect.innerHTML = '<option value="" disabled selected>Обрати відділення</option>';
                         warehouseSelect.value = ''; // Забезпечуємо, що значення буде скинуте
-                        updateCustomSelectOptions(warehouseSelect); // !!! ВИПРАВЛЕННЯ: Оновлюємо візуальний дисплей
+                        updateCustomSelectOptions(warehouseSelect); 
                         
                         // 3. Перезавантажуємо міста та оновлюємо візуальний кастомний селект міста
                         populateCities().then(() => {
-                            // populateCities вже викликає updateCustomSelectOptions для citySelect
-                            
                             // Вимикаємо поле відділення візуально
                             const warehouseWrapper = warehouseSelect.closest('.custom-select-wrapper');
                             if (warehouseWrapper) {
