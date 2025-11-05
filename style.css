@@ -2650,11 +2650,11 @@ h6 {
     }
 
     .popup-icon {
-        font-size: 24px;
+        font-size: 16px;
     }
 
     #popupMessage {
-        font-size: 14px;
+        font-size: 12px;
         white-space: normal; /* Дозволяємо перенесення рядка на мобільних, щоб вміст не виходив за межі */
     }
 
