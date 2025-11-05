@@ -1,4 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const actionButtons = document.querySelectorAll('.button--by-action');
+    // 2. Знаходимо цільовий елемент (форму) за її ID
+    const targetForm = document.getElementById('orderForm');
+    // 3. Перевіряємо, чи існує форма
+    if (targetForm) {
+        // 4. Додаємо слухача подій до КОЖНОЇ знайденої кнопки
+        actionButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); 
+
+                // Прокручуємо до форми з плавною анімацією
+                targetForm.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' 
+                });
+                
+                // Додатковий крок: фокусуємося на першому полі форми
+                const firstInput = targetForm.querySelector('#name');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            });
+        });
+    }
+
     // =======================================================
     // 0. ГЛОБАЛЬНІ КОНСТАНТИ ТА ЕЛЕМЕНТИ
     // =======================================================
@@ -267,11 +293,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const names = ['Софія', 'Олександр', 'Марія', 'Дмитро', 'Катерина', 'Андрій'];
     const cities = ['Ужгорода', 'Львова', 'Києва', 'Одеси', 'Харкова', 'Дніпра'];
     const products = [
-        { name: 'подушка синя', gender: 'f' },
-        { name: 'подушка рожева', gender: 'n' },
-        { name: 'подушка чорна', gender: 'm' },
-        { name: 'подушка коричнева', gender: 'm' },
-        { name: 'подушка біла', gender: 'f' }
+        { name: 'подушка крісло під спину,  синя', gender: 'f' },
+        { name: 'подушка крісло під спину,  крісло під спину,  рожева', gender: 'n' },
+        { name: 'подушка крісло під спину,  чорна', gender: 'm' },
+        { name: 'подушка крісло під спину,  коричнева', gender: 'm' },
+        { name: 'подушка крісло під спину,  біла', gender: 'f' }
     ];
 
     function generateRandomMessage() {

@@ -187,6 +187,10 @@ h6 {
     text-align: center;
     transition: transform 0.3s ease;
     font-family: 'Manrope', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-overlay.active .contact-modal {
@@ -214,11 +218,14 @@ h6 {
 /* Логотип Mizi Shop (колір самого логотипу змінювати не будемо, припускаючи, що він у вигляді зображення) */
 .contact-modal__logo {
     margin-bottom: 25px;
+    height: 62px;
+    aspect-ratio: 50 / 68;
 }
 
 .contact-modal__logo img {
-    max-width: 120px;
+    width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 /* Загальні стилі для секцій */
@@ -911,7 +918,7 @@ h6 {
 }
 
 .details__container ul{
-    margin-left: 25px;
+    /* margin-left: 25px; */
 }
 
 .details__container ul li{
@@ -974,8 +981,12 @@ h6 {
 .care-block {
     /* Робимо 100% ширини контейнера для уніфікації */
     width: 100%; 
-    margin: 0; 
+    margin: 45px 0 0 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Заголовок блоків */
@@ -2630,10 +2641,10 @@ h6 {
 @media (max-width: 500px) {
     .popup-notification {
         /* Обмеження ширини для екранів <= 500px */
-        max-width: 320px; 
-        
+        max-width: 90%; 
+        min-width: 310px;
         top: 15px; /* Трохи менший відступ зверху */
-        padding: 10px 15px; /* Менші внутрішні відступи */
+        padding: 8px 10px; /* Менші внутрішні відступи */
         gap: 10px;
         font-size: 14px;
     }
